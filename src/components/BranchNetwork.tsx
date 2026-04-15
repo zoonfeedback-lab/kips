@@ -44,7 +44,7 @@ export default function BranchNetwork() {
         <div className="relative group">
           <div className="aspect-[4/3] rounded-sm overflow-hidden border-[6px] border-white/10 shadow-2xl relative">
              <img 
-               src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1200" 
+               src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1200" 
                alt="Modern Campus Building" 
                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
              />

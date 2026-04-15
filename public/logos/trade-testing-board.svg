@@ -1,0 +1,21 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer hexagon/quality seal -->
+  <circle cx="60" cy="60" r="50" fill="#f8f8f8" stroke="#c41e3a" stroke-width="2"/>
+  
+  <!-- Inner circle -->
+  <circle cx="60" cy="60" r="42" fill="none" stroke="#c41e3a" stroke-width="1.5"/>
+  
+  <!-- Wrench icon -->
+  <g stroke="#264653" stroke-width="2.5" fill="none">
+    <path d="M 35 70 Q 35 50 50 35 Q 60 25 72 35"/>
+    <circle cx="70" cy="37" r="6" stroke-width="2.5"/>
+  </g>
+  
+  <!-- Gears -->
+  <circle cx="45" cy="75" r="8" fill="none" stroke="#d4a840" stroke-width="2"/>
+  <circle cx="75" cy="70" r="6" fill="none" stroke="#d4a840" stroke-width="2"/>
+  
+  <!-- Text -->
+  <text x="60" y="98" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#264653" text-anchor="middle">TTB</text>
+  <text x="60" y="110" font-family="Arial, sans-serif" font-size="7" fill="#264653" text-anchor="middle">Testing Board</text>
+</svg>

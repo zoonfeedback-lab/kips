@@ -1,0 +1,47 @@
+<svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Map background -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#d0d0d0" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <rect width="500" height="400" fill="#e8f1f5"/>
+  <rect width="500" height="400" fill="url(#grid)"/>
+  
+  <!-- Approximate Pakistan region shapes (simplified) -->
+  <path d="M 150 80 L 200 70 L 220 120 L 200 160 L 160 150 L 140 110 Z" fill="#d4e9f7" stroke="#b0c4de" stroke-width="1.5"/>
+  
+  <!-- Major city markers as glow circles -->
+  <circle cx="160" cy="100" r="15" fill="#d4a840" opacity="0.2"/>
+  <circle cx="190" cy="130" r="15" fill="#d4a840" opacity="0.2"/>
+  <circle cx="175" cy="160" r="15" fill="#d4a840" opacity="0.2"/>
+  <circle cx="145" cy="145" r="15" fill="#d4a840" opacity="0.2"/>
+  <circle cx="165" cy="75" r="15" fill="#d4a840" opacity="0.2"/>
+  <circle cx="210" cy="95" r="15" fill="#d4a840" opacity="0.2"/>
+  
+  <!-- Location pins -->
+  <g>
+    <circle cx="160" cy="100" r="4" fill="#c41e3a"/>
+    <circle cx="160" cy="100" r="2.5" fill="#fff"/>
+    
+    <circle cx="190" cy="130" r="4" fill="#c41e3a"/>
+    <circle cx="190" cy="130" r="2.5" fill="#fff"/>
+    
+    <circle cx="175" cy="160" r="4" fill="#c41e3a"/>
+    <circle cx="175" cy="160" r="2.5" fill="#fff"/>
+    
+    <circle cx="145" cy="145" r="4" fill="#c41e3a"/>
+    <circle cx="145" cy="145" r="2.5" fill="#fff"/>
+    
+    <circle cx="165" cy="75" r="4" fill="#c41e3a"/>
+    <circle cx="165" cy="75" r="2.5" fill="#fff"/>
+    
+    <circle cx="210" cy="95" r="4" fill="#c41e3a"/>
+    <circle cx="210" cy="95" r="2.5" fill="#fff"/>
+  </g>
+  
+  <!-- Map watermark text -->
+  <text x="250" y="200" font-family="Arial, sans-serif" font-size="24" fill="#c0d0e0" text-anchor="middle" opacity="0.3" font-weight="bold">Northern Pakistan</text>
+  <text x="250" y="230" font-family="Arial, sans-serif" font-size="14" fill="#c0d0e0" text-anchor="middle" opacity="0.3">KIPS Academy Branches</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Book -->
+  <path d="M 25 20 L 50 20 L 50 75 L 25 75 Q 22 70 22 50 Q 22 35 25 20" fill="#e8f1f5" stroke="#264653" stroke-width="2"/>
+  <path d="M 75 20 L 50 20 L 50 75 L 75 75 Q 78 70 78 50 Q 78 35 75 20" fill="#f0f8ff" stroke="#264653" stroke-width="2"/>
+  
+  <!-- Spine -->
+  <line x1="50" y1="20" x2="50" y2="75" stroke="#264653" stroke-width="2"/>
+  
+  <!-- Pages lines -->
+  <line x1="30" y1="35" x2="45" y2="35" stroke="#264653" stroke-width="1" opacity="0.5"/>
+  <line x1="30" y1="45" x2="45" y2="45" stroke="#264653" stroke-width="1" opacity="0.5"/>
+  <line x1="30" y1="55" x2="45" y2="55" stroke="#264653" stroke-width="1" opacity="0.5"/>
+  
+  <line x1="55" y1="35" x2="70" y2="35" stroke="#264653" stroke-width="1" opacity="0.5"/>
+  <line x1="55" y1="45" x2="70" y2="45" stroke="#264653" stroke-width="1" opacity="0.5"/>
+  <line x1="55" y1="55" x2="70" y2="55" stroke="#264653" stroke-width="1" opacity="0.5"/>
+</svg>

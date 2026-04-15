@@ -1,39 +1,50 @@
-﻿import styles from "./ContactCTA.module.css";
+import styles from "./ContactCTA.module.css";
 
 export default function ContactCTA() {
   return (
-    <section id="contact" className={styles.section}>
-      <div className={styles.panel}>
-        <div className={styles.copy}>
-          <h2>Ready to start your journey at KIPS?</h2>
-          <p>
-            Our admissions counselors are ready to help you find the perfect program
-            for your career goals.
+    <section id="contact" className="bg-kips-yellow-500 py-12 lg:py-16">
+      <div className="container-custom flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-xs">
+          <h2 className="text-3xl lg:text-4xl font-black text-kips-navy-900 tracking-tighter uppercase leading-none mb-2">
+            CALL US DIRECTLY
+          </h2>
+          <p className="text-sm font-bold text-kips-navy-900/60 uppercase tracking-widest">
+            Get personalized counseling
           </p>
-          <ul className={styles.contactList}>
-            <li>0334-9267992 | 0301-9884455</li>
-            <li>admissions@kipsacademy.edu</li>
-          </ul>
         </div>
 
-        <form className={styles.form}>
-          <label>
-            Full Name
-            <input type="text" placeholder="John Doe" />
-          </label>
-          <label>
-            Select Program
-            <select defaultValue="NEBOSH/Safety">
-              <option>NEBOSH/Safety</option>
-              <option>Graphic Designing</option>
-              <option>CIT (1 Year)</option>
-              <option>Montessori Training</option>
-            </select>
-          </label>
-          <button type="submit">Request Prospectus</button>
-        </form>
+        <div className="flex flex-col md:flex-row items-center gap-6 lg:gap-12 w-full lg:w-auto">
+          {/* Main Helpline */}
+          <div className="flex items-center gap-6 group cursor-pointer w-full md:w-auto">
+            <div className="w-16 h-16 rounded-xl bg-kips-navy-900 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+              <span className="text-2xl text-kips-yellow-500">📞</span>
+            </div>
+            <div>
+              <div className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter transition-colors">
+                0334-9267992
+              </div>
+              <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em]">Main Helpline</p>
+            </div>
+          </div>
+
+          <div className="w-px h-16 bg-kips-navy-900/10 hidden lg:block" />
+
+          {/* Mobile Campus */}
+          <div className="flex items-center gap-6 group cursor-pointer w-full md:w-auto">
+            <div className="w-16 h-16 rounded-xl bg-kips-navy-900 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+              <span className="text-2xl text-kips-yellow-500">📱</span>
+            </div>
+            <div>
+              <div className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter">
+                0301-9884455
+              </div>
+              <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em]">Mobile Campus</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
+
 

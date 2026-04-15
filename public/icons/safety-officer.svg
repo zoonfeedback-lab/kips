@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield background -->
+  <path d="M 50 10 L 80 25 L 80 50 Q 80 75 50 85 Q 20 75 20 50 L 20 25 Z" fill="#e8f1f5" stroke="#264653" stroke-width="2"/>
+  
+  <!-- Safety checkmark -->
+  <g stroke="#2a9d8f" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M 35 55 L 45 65 L 65 45" />
+  </g>
+  
+  <!-- Text -->
+  <text x="50" y="82" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#264653" text-anchor="middle">SAFETY</text>
+</svg>

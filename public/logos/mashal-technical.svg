@@ -1,0 +1,24 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gear circle background -->
+  <circle cx="60" cy="60" r="50" fill="#e8f4f8" stroke="#1a3a7a" stroke-width="2.5"/>
+  
+  <!-- Main gear -->
+  <circle cx="60" cy="60" r="20" fill="none" stroke="#1a3a7a" stroke-width="2"/>
+  <circle cx="60" cy="60" r="12" fill="#1a3a7a"/>
+  
+  <!-- Gear teeth -->
+  <g stroke="#1a3a7a" stroke-width="2">
+    <rect x="58" y="35" width="4" height="8" fill="#1a3a7a"/>
+    <rect x="58" y="77" width="4" height="8" fill="#1a3a7a"/>
+    <rect x="35" y="58" width="8" height="4" fill="#1a3a7a"/>
+    <rect x="77" y="58" width="8" height="4" fill="#1a3a7a"/>
+  </g>
+  
+  <!-- Small gears -->
+  <circle cx="80" cy="40" r="8" fill="none" stroke="#d4a840" stroke-width="1.5"/>
+  <circle cx="80" cy="40" r="4" fill="#d4a840" opacity="0.7"/>
+  
+  <!-- Text -->
+  <text x="60" y="102" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#1a3a7a" text-anchor="middle">MASHAL</text>
+  <text x="60" y="113" font-family="Arial, sans-serif" font-size="7" fill="#1a3a7a" text-anchor="middle">TECHNICAL</text>
+</svg>

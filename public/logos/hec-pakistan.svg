@@ -1,0 +1,11 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Green circle (Pakistan colors) -->
+  <circle cx="60" cy="60" r="50" fill="#fff" stroke="#2d6e3e" stroke-width="2.5"/>
+  
+  <!-- Star (Pakistan flag element) -->
+  <polygon points="60,25 68,48 92,48 74,63 82,86 60,71 38,86 46,63 28,48 52,48" fill="#2d6e3e"/>
+  
+  <!-- Text foundation -->
+  <text x="60" y="95" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2d6e3e" text-anchor="middle">HEC</text>
+  <text x="60" y="108" font-family="Arial, sans-serif" font-size="8" fill="#2d6e3e" text-anchor="middle">PAKISTAN</text>
+</svg>

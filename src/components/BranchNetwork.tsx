@@ -43,10 +43,11 @@ export default function BranchNetwork() {
 
         <div className="relative group">
           <div className="aspect-[4/3] rounded-sm overflow-hidden border-[6px] border-white/10 shadow-2xl relative">
-             <div className="absolute inset-0 bg-stone-100 flex flex-col items-center justify-center p-12 text-center">
-                <div className="w-24 h-24 mb-6 opacity-20 bg-kips-navy-900 rounded-full flex items-center justify-center">🏫</div>
-                <span className="text-stone-300 font-black text-2xl uppercase tracking-widest italic">CAMPUS VISUAL</span>
-             </div>
+             <img 
+               src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1200" 
+               alt="Modern Campus Building" 
+               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+             />
              {/* Regional Leader Badge */}
              <div className="absolute top-6 right-6 px-4 py-2 bg-kips-yellow-500 text-kips-navy-900 text-[0.65rem] font-black uppercase tracking-widest shadow-xl">
                REGIONAL LEADER

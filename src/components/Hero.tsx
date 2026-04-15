@@ -41,9 +41,11 @@ export default function Hero() {
 
           <div className="relative">
             <div className="relative aspect-[4/3] rounded-sm border-[6px] border-kips-yellow-500 overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-stone-100 flex items-center justify-center">
-                <span className="text-stone-300 font-black text-6xl italic">ILLUSTRATION</span>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1523240715630-3418ba6da001?auto=format&fit=crop&q=80&w=1200" 
+                alt="Students studying" 
+                className="w-full h-full object-cover brightness-110 saturate-125 transition-transform duration-700 hover:scale-105"
+              />
             </div>
             {/* Excellence Card */}
             <div className="absolute -bottom-10 -left-10 p-8 pt-10 bg-kips-red-600 text-white rounded-sm shadow-2xl max-w-[14rem]">

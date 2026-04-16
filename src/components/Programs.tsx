@@ -3,26 +3,30 @@ import styles from "./Programs.module.css";
 const programs = [
   {
     title: "Safety Officer",
-    category: "NEBOSH, OSHA, IOSH",
+    urduTitle: "سیفٹی آفیسر",
+    category: "(NEBOSH, OSHA, IOSH)",
     description:
       "International safety certifications for high-level professional careers.",
     featured: true,
   },
   {
     title: "Computer Courses",
-    category: "CIT, DIT, Graphic Designing",
+    urduTitle: "کمپیوٹر کورسز",
+    category: "(CIT, DIT, Graphic Designing)",
     description:
       "Professional IT and training with modern industry tools.",
     featured: true,
   },
   {
     title: "Educational Courses",
-    category: "BA, B.ED, Montessori",
+    urduTitle: "ایجوکیشنل کورسز",
+    category: "(BA, B.ED, Montessori)",
     description: "Professional teacher training and academic degree support.",
   },
   {
     title: "Tuition Classes",
-    category: "Nursery to FSC",
+    urduTitle: "ٹیوشن کلاسز",
+    category: "(Nursery to FSC)",
     description:
       "Quality academic support for students from elementary to college levels.",
   },
@@ -65,10 +69,18 @@ export default function Programs() {
                 )}
               </div>
 
-              <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-4">
+              <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-2">
                 {program.title.split(' ')[0]}
                 {program.title.split(' ')[1] ? <span className="block text-kips-yellow-500">{program.title.split(' ')[1]}</span> : null}
               </h3>
+
+              <div className="text-xl font-bold text-kips-yellow-500/40 mb-4" dir="rtl">
+                {program.urduTitle}
+              </div>
+
+              <div className="text-[0.65rem] font-black text-white/50 uppercase tracking-widest mb-4">
+                {program.category}
+              </div>
 
               <p className="text-sm text-white/40 leading-relaxed font-medium">
                 {program.description}

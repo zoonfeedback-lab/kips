@@ -14,14 +14,26 @@ export default function Hero() {
               <br />
               ACADEMY
             </h1>
-            <p className="mt-8 text-white/90 text-lg lg:text-xl font-bold leading-tight">
-              Evening Skill Development Program
-              <br />
-              & Weekend Classes
-              <span className="block mt-2 text-kips-yellow-500 text-sm font-black uppercase tracking-widest">
-                Evening: 2:00pm To 6:00pm
-              </span>
-            </p>
+            <div className="mt-8 flex flex-col gap-6">
+              <p className="text-white/90 text-lg lg:text-xl font-bold leading-tight">
+                Evening Skill Development Program
+                <br />
+                & Weekend Classes
+                <span className="block mt-2 text-kips-yellow-500 text-sm font-black uppercase tracking-widest">
+                  Evening: 2:00pm To 6:00pm
+                </span>
+              </p>
+              
+              {/* Urdu Slogan Cloud */}
+              <div className="relative inline-block" dir="rtl">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-4 rounded-2xl inline-flex flex-col items-center gap-1 shadow-2xl">
+                  <span className="text-3xl lg:text-4xl font-black text-kips-yellow-500 font-body leading-none">ہنر سیکھیں</span>
+                  <span className="text-sm lg:text-base font-bold text-white/80">اور اپنا مستقبل سنواریں</span>
+                </div>
+                {/* Decorative Dots */}
+                <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-kips-red-600 animate-pulse" />
+              </div>
+            </div>
             <p className="mt-6 text-white/60 text-sm max-w-sm leading-relaxed">
               Exclusively designed for professional students and ambitious learners aiming for excellence in technical and academic sectors.
             </p>

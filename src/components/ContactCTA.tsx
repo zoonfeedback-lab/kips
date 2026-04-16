@@ -14,16 +14,31 @@ export default function ContactCTA() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center gap-6 lg:gap-12 w-full lg:w-auto">
-          {/* Main Helpline */}
-          <div className="flex items-center gap-6 group cursor-pointer w-full md:w-auto">
-            <div className="w-16 h-16 rounded-xl bg-kips-navy-900 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-              <span className="text-2xl text-kips-yellow-500">📞</span>
-            </div>
-            <div>
-              <div className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter transition-colors">
-                0334-9267992
+          <div className="flex flex-col gap-4 w-full md:w-auto">
+            {/* Main Helpline */}
+            <div className="flex items-center gap-6 group w-full md:w-auto">
+              <div className="w-16 h-16 rounded-xl bg-kips-navy-900 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform cursor-pointer">
+                <span className="text-2xl text-kips-yellow-500">📞</span>
               </div>
-              <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em]">WhatsApp Available</p>
+              <div className="flex flex-col">
+                <a 
+                  href="https://wa.me/923349267992" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter hover:text-white transition-colors leading-none"
+                >
+                  0334-9267992
+                </a>
+                <a 
+                  href="https://wa.me/923019884455" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter hover:text-white transition-colors mt-1"
+                >
+                  0301-9884455
+                </a>
+                <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em] mt-2">WhatsApp / Helpline (Click to Chat)</p>
+              </div>
             </div>
           </div>
 

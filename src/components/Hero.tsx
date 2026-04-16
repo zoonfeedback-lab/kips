@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <div id="home">
-      <section className="relative min-h-[calc(100svh-6rem)] -mt-24 pt-32 pb-16 lg:pt-48 lg:pb-32 flex items-center overflow-hidden bg-kips-navy-900 border-b border-white/5">
+      <section className="relative min-h-[calc(100svh-6rem)] pt-32 pb-16 lg:pt-48 lg:pb-32 flex items-center overflow-hidden bg-kips-navy-900 border-b border-white/5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(254,198,1,0.1),transparent_30%)]" />
         
         <div className="container-custom relative z-10 grid lg:grid-cols-[1.1fr,1fr] items-center gap-12">
@@ -18,6 +18,9 @@ export default function Hero() {
               Evening Skill Development Program
               <br />
               & Weekend Classes
+              <span className="block mt-2 text-kips-yellow-500 text-sm font-black uppercase tracking-widest">
+                Evening: 2:00pm To 6:00pm
+              </span>
             </p>
             <p className="mt-6 text-white/60 text-sm max-w-sm leading-relaxed">
               Exclusively designed for professional students and ambitious learners aiming for excellence in technical and academic sectors.
@@ -40,11 +43,11 @@ export default function Hero() {
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/3] rounded-sm border-[6px] border-kips-yellow-500 overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-sm border-[6px] border-kips-yellow-500 overflow-hidden shadow-2xl bg-kips-navy-800">
               <img 
-                src="https://images.unsplash.com/photo-1523240715630-3418ba6da001?auto=format&fit=crop&q=80&w=1200" 
-                alt="Students studying" 
-                className="w-full h-full object-cover brightness-110 saturate-125 transition-transform duration-700 hover:scale-105"
+                src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+                alt="Professional Academic Environment" 
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
             {/* Excellence Card */}
@@ -74,6 +77,9 @@ export default function Hero() {
                   Under Supervision: <span className="text-white">Prof: Sohail Ahmed Khan</span>
                 </p>
               </div>
+              <p className="mt-2 text-[0.6rem] text-white/40 font-bold uppercase tracking-[0.2em]">
+                For Online Registration & Classes Contact Us WhatsApp / Zoom App
+              </p>
             </div>
           </div>
           <a href="#contact" className="px-10 py-4 bg-kips-red-600 text-white font-black uppercase tracking-widest rounded-sm shadow-xl shadow-kips-red-600/20 hover:bg-kips-red-700 transition-all">
@@ -84,4 +90,3 @@ export default function Hero() {
     </div>
   );
 }
-

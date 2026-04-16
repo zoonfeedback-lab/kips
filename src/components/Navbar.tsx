@@ -12,6 +12,7 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("#home");
 
   return (
     <header className="sticky top-0 z-50 p-4 lg:pt-6 lg:px-6 lg:pb-0">
@@ -21,13 +22,21 @@ export default function Navbar() {
       >
         <Link
           href="#home"
-          className="inline-flex items-center gap-3 text-white transition-opacity hover:opacity-90"
-          onClick={() => setIsOpen(false)}
+          className="inline-flex items-center gap-4 text-white hover:opacity-90 transition-opacity"
+          onClick={() => {
+            setIsOpen(false);
+            setActiveHash("#home");
+          }}
         >
-          <span className="grid place-items-center w-9 h-9 rounded-lg bg-kips-yellow-500 text-kips-navy-900 font-display font-black text-lg">
-            K
-          </span>
-          <span className="font-semibold tracking-tight">KIPS Academy</span>
+          <img 
+            src="/logos/main_logo.jpg" 
+            alt="KIPS logo" 
+            className="w-12 h-12 rounded-lg bg-white p-1 object-contain shadow-lg"
+          />
+          <div className="flex flex-col">
+            <span className="font-bold text-lg leading-tight tracking-tight uppercase italic">KIPS Academy</span>
+            <span className="text-[0.6rem] font-black tracking-[0.2em] text-kips-yellow-500 uppercase opacity-80">Shah Maqsood Campus</span>
+          </div>
         </Link>
 
         <button
@@ -47,8 +56,9 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-bold uppercase tracking-widest transition-colors ${
-                item.label === "Home" ? "text-kips-yellow-500 border-b-2 border-kips-yellow-500 pb-1" : "text-white/70 hover:text-white"
+              onClick={() => setActiveHash(item.href)}
+              className={`text-sm font-bold uppercase tracking-widest transition-all duration-300 ${
+                activeHash === item.href ? "text-kips-yellow-500 border-b-2 border-kips-yellow-500 pb-1" : "text-white/70 hover:text-white"
               }`}
             >
               {item.label}
@@ -75,8 +85,13 @@ export default function Navbar() {
           <Link
             key={item.href}
             href={item.href}
-            className="text-white text-lg font-medium py-2 border-b border-white/5 hover:text-kips-yellow-500 transition-colors"
-            onClick={() => setIsOpen(false)}
+            className={`text-lg font-medium py-2 border-b border-white/5 transition-colors ${
+              activeHash === item.href ? "text-kips-yellow-500" : "text-white"
+            }`}
+            onClick={() => {
+              setIsOpen(false);
+              setActiveHash(item.href);
+            }}
           >
             {item.label}
           </Link>

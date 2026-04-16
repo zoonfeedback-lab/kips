@@ -1,0 +1,19 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Ring -->
+  <circle cx="50" cy="50" r="48" stroke="#006c67" stroke-width="4"/>
+  <circle cx="50" cy="50" r="42" stroke="#006c67" stroke-width="1" stroke-dasharray="2 4"/>
+  
+  <!-- Central Globe Motif -->
+  <circle cx="50" cy="50" r="30" fill="#006c67" fill-opacity="0.1"/>
+  <path d="M50 20C33.4315 20 20 33.4315 20 50C20 66.5685 33.4315 80 50 80C66.5685 80 80 66.5685 80 50C80 33.4315 66.5685 20 50 20ZM50 76C35.6406 76 24 64.3594 24 50C24 35.6406 35.6406 24 50 24C64.3594 24 76 35.6406 76 50C76 64.3594 64.3594 76 50 76Z" fill="#006c67"/>
+  
+  <!-- Longitude/Latitude lines -->
+  <path d="M50 20V80M20 50H80M28 32C35 38 35 62 28 68M72 32C65 38 65 62 72 68" stroke="#006c67" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Technical Gear (Simplified) -->
+  <path d="M50 40L53 35M50 40L47 35M50 40V33M50 60V67M50 60L53 65M50 60L47 65M40 50H33M40 50L35 53M40 50L35 47M60 50H67M60 50L65 53M60 50L65 47" stroke="#fec601" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Shield/Torch Center -->
+  <path d="M46 55L50 45L54 55H46Z" fill="#fec601"/>
+  <path d="M50 42C51 40 53 40 50 36C47 40 49 40 50 42Z" fill="#fec601"/>
+</svg>

@@ -25,6 +25,13 @@ export default function Footer() {
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr,repeat(3,1fr)] gap-16 lg:gap-24 mb-20">
           <div className="flex flex-col">
+            <div className="mb-6">
+              <img 
+                src="/logos/main_logo.jpg" 
+                alt="KIPS footer logo" 
+                className="w-16 h-16 rounded-xl bg-white p-2 object-contain shadow-xl"
+              />
+            </div>
             <h3 className="text-3xl font-black tracking-tighter text-white mb-1 font-display italic uppercase">
               KIPS <span className="text-kips-yellow-500">ACADEMY</span>
             </h3>

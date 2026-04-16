@@ -7,28 +7,24 @@ const programs = [
     description:
       "International safety certifications for high-level professional careers.",
     featured: true,
-    icon: "/icons/safety-officer.svg",
   },
   {
     title: "Computer Courses",
     category: "CIT, DIT, Graphic Designing",
     description:
-      "Professional IT and design training with modern industry tools.",
+      "Professional IT and training with modern industry tools.",
     featured: true,
-    icon: "/icons/graphic-design.svg",
   },
   {
     title: "Educational Courses",
     category: "BA, B.ED, Montessori",
     description: "Professional teacher training and academic degree support.",
-    icon: "/icons/education.svg",
   },
   {
     title: "Tuition Classes",
     category: "Nursery to FSC",
     description:
       "Quality academic support for students from elementary to college levels.",
-    icon: "/icons/tuition.svg",
   },
 ];
 
@@ -89,6 +85,19 @@ export default function Programs() {
               <span className="text-white text-2xl font-black">+</span>
             </div>
           </article>
+        </div>
+
+        {/* AIOU Note from flyer */}
+        <div className="mt-12 p-8 rounded-sm bg-white/5 border border-kips-yellow-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+             <span className="inline-block px-3 py-1 bg-kips-yellow-500 text-kips-navy-900 text-[0.65rem] font-black uppercase tracking-widest rounded-sm mb-2">
+               Special Note
+             </span>
+             <h4 className="text-xl font-bold text-white uppercase tracking-tight">AIOU Preparation</h4>
+          </div>
+          <p className="text-xl lg:text-2xl font-bold text-white/90 text-center leading-relaxed font-body" dir="rtl">
+            نوٹ: علامہ اقبال اوپن یونیورسٹی کی اسائنمنٹ اور ایگزیم کی تیاری رجسٹرڈ ٹیوٹرز کی زیر نگرانی
+          </p>
         </div>
       </div>
     </section>

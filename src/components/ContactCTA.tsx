@@ -23,22 +23,22 @@ export default function ContactCTA() {
               <div className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter transition-colors">
                 0334-9267992
               </div>
-              <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em]">Main Helpline</p>
+              <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em]">WhatsApp Available</p>
             </div>
           </div>
 
           <div className="w-px h-16 bg-kips-navy-900/10 hidden lg:block" />
 
-          {/* Mobile Campus */}
+          {/* Email / Zoom Info */}
           <div className="flex items-center gap-6 group cursor-pointer w-full md:w-auto">
             <div className="w-16 h-16 rounded-xl bg-kips-navy-900 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-              <span className="text-2xl text-kips-yellow-500">📱</span>
+              <span className="text-2xl text-kips-yellow-500">✉️</span>
             </div>
             <div>
-              <div className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter">
-                0301-9884455
+              <div className="text-xl lg:text-2xl font-black text-kips-navy-900 tracking-tight leading-none mb-1">
+                k.13.10.13@gmail.com
               </div>
-              <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em]">Mobile Campus</p>
+              <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em]">Zoom sessions available</p>
             </div>
           </div>
         </div>

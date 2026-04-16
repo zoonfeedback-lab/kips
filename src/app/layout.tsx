@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -16,14 +16,14 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "KIPS Academy | Evening Skills Development",
   description:
-    "A premium portfolio site for KIPS Academy showcasing evening programs, affiliations, branch network, and admissions.",
+    "A premium portfolio site for KIPS Academy showcasing evening skills development programs, professional affiliations, and admissions.",
   keywords: [
     "KIPS Academy",
-    "Evening Programs",
     "Technical Education",
-    "Graphic Designing",
-    "CIT",
-    "NEBOSH",
+    "Skill Development",
+    "Hazara",
+    "Abbottabad",
+    "Mansehra",
   ],
 };
 
@@ -38,4 +38,3 @@ export default function RootLayout({
     </html>
   );
 }
-

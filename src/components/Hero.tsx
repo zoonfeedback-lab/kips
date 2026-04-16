@@ -18,6 +18,9 @@ export default function Hero() {
               Evening Skill Development Program
               <br />
               & Weekend Classes
+              <span className="block mt-2 text-kips-yellow-500 text-sm font-black uppercase tracking-widest">
+                Evening: 2:00pm To 6:00pm
+              </span>
             </p>
             <p className="mt-6 text-white/60 text-sm max-w-sm leading-relaxed">
               Exclusively designed for professional students and ambitious learners aiming for excellence in technical and academic sectors.
@@ -74,6 +77,9 @@ export default function Hero() {
                   Under Supervision: <span className="text-white">Prof: Sohail Ahmed Khan</span>
                 </p>
               </div>
+              <p className="mt-2 text-[0.6rem] text-white/40 font-bold uppercase tracking-[0.2em]">
+                For Online Registration & Classes Contact Us WhatsApp / Zoom App
+              </p>
             </div>
           </div>
           <a href="#contact" className="px-10 py-4 bg-kips-red-600 text-white font-black uppercase tracking-widest rounded-sm shadow-xl shadow-kips-red-600/20 hover:bg-kips-red-700 transition-all">
@@ -84,4 +90,3 @@ export default function Hero() {
     </div>
   );
 }
-

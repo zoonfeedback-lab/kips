@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const navItems = [
+type NavItem = {
+  href: string;
+  label: string;
+  badge?: string;
+};
+
+const navItems: NavItem[] = [
   { href: "#home", label: "Home" },
   { href: "#programs", label: "Programs" },
   { href: "#news", label: "News", }, // News 

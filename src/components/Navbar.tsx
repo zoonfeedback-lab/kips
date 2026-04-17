@@ -20,7 +20,11 @@ const navItems: NavItem[] = [
 const regionLine =
   "Abbottabad | Haripur | Mansehra | Shinkiari | Baffa | Mirpur (AJK) | Garhi Habibullah";
 
-export default function Navbar() {
+type NavbarProps = {
+  onEnrollClick: () => void;
+};
+
+export default function Navbar({ onEnrollClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("#home");
   return (
@@ -112,12 +116,12 @@ export default function Navbar() {
             ))}
           </div>
 
-          <Link
-            href="#contact"
-            className="hidden items-center justify-center rounded-full bg-kips-yellow-500 px-8 py-3 text-xs font-black uppercase tracking-widest text-kips-navy-900 shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_6px_16px_rgba(255,255,255,0.4)] lg:inline-flex"
+          <button
+            onClick={onEnrollClick}
+            className="hidden items-center justify-center rounded-full bg-kips-yellow-500 px-8 py-3 text-xs font-black uppercase tracking-widest text-kips-navy-900 shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_6px_16px_rgba(255,255,255,0.4)] cursor-pointer lg:inline-flex"
           >
             Enroll Now
-          </Link>
+          </button>
         </nav>
 
         <div
@@ -146,13 +150,15 @@ export default function Navbar() {
               )}
             </Link>
           ))}
-          <Link
-            href="#contact"
-            className="mt-4 flex w-full items-center justify-center rounded-xl bg-kips-yellow-500 p-4 font-bold text-kips-navy-900 shadow-lg"
-            onClick={() => setIsOpen(false)}
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              onEnrollClick();
+            }}
+            className="mt-4 flex w-full items-center justify-center rounded-xl bg-kips-yellow-500 p-4 font-bold text-kips-navy-900 shadow-lg cursor-pointer"
           >
             Apply Now
-          </Link>
+          </button>
         </div>
       </div>
     </header>

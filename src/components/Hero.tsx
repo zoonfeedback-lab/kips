@@ -1,7 +1,11 @@
 const regionLine =
   "Abbottabad | Haripur | Mansehra | Shinkiari | Baffa | Mirpur (AJK) | Garhi Habibullah";
 
-export default function Hero() {
+type HeroProps = {
+  onEnrollClick: () => void;
+};
+
+export default function Hero({ onEnrollClick }: HeroProps) {
   return (
     <div id="home">
       <section className="relative flex min-h-[calc(100svh-6rem)] items-center overflow-hidden border-b border-white/5 bg-kips-navy-900 pb-16 pt-32 lg:pb-32 lg:pt-48">
@@ -50,15 +54,15 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="group inline-flex items-center justify-center rounded-sm bg-kips-yellow-500 px-8 py-4 font-extrabold text-kips-navy-900 shadow-xl shadow-kips-yellow-500/20 transition-all hover:bg-white"
+              <button
+                onClick={onEnrollClick}
+                className="group inline-flex items-center justify-center rounded-sm bg-kips-yellow-500 px-8 py-4 font-extrabold text-kips-navy-900 shadow-xl shadow-kips-yellow-500/20 transition-all hover:bg-white cursor-pointer"
               >
                 Enroll Now
                 <span className="ml-2 transition-transform group-hover:translate-x-1">
                   →
                 </span>
-              </a>
+              </button>
               <a
                 href="#programs"
                 className="inline-flex items-center justify-center rounded-sm border border-white/20 px-8 py-4 font-bold text-white transition-all hover:bg-white/5"
@@ -110,12 +114,12 @@ export default function Hero() {
               </p>
             </div>
           </div>
-          <a
-            href="#contact"
-            className="rounded-sm bg-kips-red-600 px-10 py-4 font-black uppercase tracking-widest text-white shadow-xl shadow-kips-red-600/20 transition-all hover:bg-kips-red-700"
+          <button
+            onClick={onEnrollClick}
+            className="rounded-sm bg-kips-red-600 px-10 py-4 font-black uppercase tracking-widest text-white shadow-xl shadow-kips-red-600/20 transition-all hover:bg-kips-red-700 cursor-pointer"
           >
             Enroll Now
-          </a>
+          </button>
         </div>
       </div>
     </div>

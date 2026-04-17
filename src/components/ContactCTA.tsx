@@ -11,7 +11,11 @@ const whatsappContacts = [
   },
 ];
 
-export default function ContactCTA() {
+type ContactCTAProps = {
+  onEnrollClick: () => void;
+};
+
+export default function ContactCTA({ onEnrollClick }: ContactCTAProps) {
   return (
     <section id="contact" className="bg-kips-yellow-500 py-12 lg:py-16">
       <div className="container-custom flex flex-col items-center justify-between gap-12 lg:flex-row">
@@ -22,6 +26,12 @@ export default function ContactCTA() {
           <p className="text-sm font-bold uppercase tracking-widest text-kips-navy-900/60">
             Get personalized counseling and admissions support
           </p>
+          <button
+            onClick={onEnrollClick}
+            className="mt-6 inline-flex rounded-lg bg-kips-navy-900 px-6 py-3 text-xs font-black uppercase tracking-widest text-kips-yellow-500 shadow-xl transition-all hover:-translate-y-0.5 hover:bg-white hover:text-kips-navy-900 cursor-pointer"
+          >
+            Enroll Online Now
+          </button>
         </div>
 
         <div className="flex w-full flex-col items-center gap-6 md:flex-row lg:w-auto lg:gap-12">

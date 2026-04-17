@@ -1,59 +1,69 @@
-import styles from "./ContactCTA.module.css";
+const whatsappContacts = [
+  {
+    label: "WhatsApp Helpline",
+    number: "0314-4048842",
+    href: "https://wa.me/923144048842",
+  },
+  {
+    label: "Admissions WhatsApp",
+    number: "0301-9884455",
+    href: "https://wa.me/923019884455",
+  },
+];
 
 export default function ContactCTA() {
   return (
     <section id="contact" className="bg-kips-yellow-500 py-12 lg:py-16">
-      <div className="container-custom flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="container-custom flex flex-col items-center justify-between gap-12 lg:flex-row">
         <div className="max-w-xs">
-          <h2 className="text-3xl lg:text-4xl font-black text-kips-navy-900 tracking-tighter uppercase leading-none mb-2">
-            CALL US DIRECTLY
+          <h2 className="mb-2 text-3xl font-black uppercase leading-none tracking-tighter text-kips-navy-900 lg:text-4xl">
+            Call or WhatsApp Us
           </h2>
-          <p className="text-sm font-bold text-kips-navy-900/60 uppercase tracking-widest">
-            Get personalized counseling
+          <p className="text-sm font-bold uppercase tracking-widest text-kips-navy-900/60">
+            Get personalized counseling and admissions support
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center gap-6 lg:gap-12 w-full lg:w-auto">
-          <div className="flex flex-col gap-4 w-full md:w-auto">
-            {/* Main Helpline */}
-            <div className="flex items-center gap-6 group w-full md:w-auto">
-              <div className="w-16 h-16 rounded-xl bg-kips-navy-900 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform cursor-pointer">
-                <span className="text-2xl text-kips-yellow-500">📞</span>
+        <div className="flex w-full flex-col items-center gap-6 md:flex-row lg:w-auto lg:gap-12">
+          <div className="flex w-full flex-col gap-4 md:w-auto">
+            {whatsappContacts.map((contact) => (
+              <div key={contact.number} className="flex items-center gap-6 group">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-kips-navy-900 shadow-xl transition-transform group-hover:scale-110">
+                  <span className="text-2xl text-kips-yellow-500">📞</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-kips-navy-900/50">
+                    {contact.label}
+                  </span>
+                  <a
+                    href={contact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl font-black leading-none tracking-tighter text-kips-navy-900 transition-colors hover:text-white lg:text-3xl"
+                  >
+                    {contact.number}
+                  </a>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <a 
-                  href="https://wa.me/923349267992" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter hover:text-white transition-colors leading-none"
-                >
-                  0334-9267992
-                </a>
-                <a 
-                  href="https://wa.me/923019884455" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-2xl lg:text-3xl font-black text-kips-navy-900 tracking-tighter hover:text-white transition-colors mt-1"
-                >
-                  0301-9884455
-                </a>
-                <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em] mt-2">WhatsApp / Helpline (Click to Chat)</p>
-              </div>
-            </div>
+            ))}
+            <p className="pt-2 text-[0.65rem] font-black uppercase tracking-[0.2em] text-kips-navy-900/50">
+              Click any number to open WhatsApp chat.
+            </p>
           </div>
 
-          <div className="w-px h-16 bg-kips-navy-900/10 hidden lg:block" />
+          <div className="hidden h-16 w-px bg-kips-navy-900/10 lg:block" />
 
-          {/* Email / Zoom Info */}
-          <div className="flex items-center gap-6 group cursor-pointer w-full md:w-auto">
-            <div className="w-16 h-16 rounded-xl bg-kips-navy-900 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+          <div className="flex w-full items-center gap-6 md:w-auto">
+            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-kips-navy-900 shadow-xl">
               <span className="text-2xl text-kips-yellow-500">✉️</span>
             </div>
             <div>
-              <div className="text-xl lg:text-2xl font-black text-kips-navy-900 tracking-tight leading-none mb-1">
+              <div className="mb-1 text-xl font-black leading-none tracking-tight text-kips-navy-900 lg:text-2xl">
                 k.13.10.13@gmail.com
               </div>
-              <p className="text-[0.65rem] font-black text-kips-navy-900/50 uppercase tracking-[0.2em]">Zoom sessions available</p>
+              <p className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-kips-navy-900/50">
+                Zoom sessions available
+              </p>
             </div>
           </div>
         </div>
@@ -61,5 +71,3 @@ export default function ContactCTA() {
     </section>
   );
 }
-
-

@@ -20,7 +20,7 @@ const programs = [
   "Beautician",
   "Psychology & Parenting",
   "Test Preparations (ETEA/NTS)",
-  "Cadet College / Interview Prep",
+  "Cadet College & Interviews",
 ];
 
 const branches = [

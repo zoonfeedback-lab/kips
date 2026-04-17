@@ -106,22 +106,22 @@ const categories: Category[] = [
       {
         title: "Psychology & Parenting",
         urduTitle: "نفسیات اور پیرنٹنگ",
-        detail: "Educational psychology, child psychology, and parenting issues",
+        detail: "Educational Psychology, Child Psychology, Parenting, and Educational Issues",
       },
       {
         title: "Test Preparations",
         urduTitle: "ٹیسٹ کی تیاری",
-        detail: "ETEA and NTS preparation courses",
+        detail: "Professional coaching for ETEA and NTS examinations",
       },
       {
-        title: "Career & Admissions",
+        title: "Cadet College & Interviews",
         urduTitle: "کیریئر اور داخلے",
-        detail: "Cadet College preparations and Interview guidance",
+        detail: "Cadet College Preparations and Interview preparation guidance",
       },
       {
         title: "English Grammar",
         urduTitle: "انگلش گرامر",
-        detail: "Advanced grammatical foundation building",
+        detail: "Comprehensive English Grammar foundation for advanced learners",
       },
     ],
   },

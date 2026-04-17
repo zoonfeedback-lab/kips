@@ -1,4 +1,4 @@
-﻿const regionLine =
+const regionLine =
   "Abbottabad | Haripur | Mansehra | Shinkiari | Baffa | Mirpur (AJK) | Garhi Habibullah";
 
 export default function Hero() {
@@ -102,7 +102,7 @@ export default function Hero() {
                 </p>
                 <div className="hidden h-1.5 w-1.5 rounded-full bg-white/20 md:block" />
                 <p className="text-[0.65rem] font-black uppercase tracking-widest text-kips-yellow-500">
-                  Under supervision: <span className="text-white">Prof. Sohail Ahmed Khan</span>
+                  Under supervision: <span className="text-white">Professor Sohail Ahmad Khan and Dr Mudassir</span>
                 </p>
               </div>
               <p className="mt-2 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/40">

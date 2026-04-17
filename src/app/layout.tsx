@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -14,16 +14,20 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "KIPS Academy | Evening Skills Development",
+  title: "Keyan Institute of Professional Studies | KIPS",
   description:
-    "A premium portfolio site for KIPS Academy showcasing evening skills development programs, professional affiliations, and admissions.",
+    "Keyan Institute of Professional Studies is a project of Mashal Technical Education System, offering IT, professional, academic, and vocational programs across Abbottabad, Haripur, Mansehra, Shinkiari, Baffa, Mirpur (AJK), and Garhi Habibullah.",
   keywords: [
-    "KIPS Academy",
-    "Technical Education",
-    "Skill Development",
-    "Hazara",
+    "Keyan Institute of Professional Studies",
+    "KIPS",
+    "Mashal Technical Education System",
+    "IT courses",
+    "professional studies",
+    "vocational training",
     "Abbottabad",
+    "Haripur",
     "Mansehra",
+    "Mirpur AJK",
   ],
 };
 

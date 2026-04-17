@@ -1,53 +1,67 @@
+﻿const regionLine =
+  "Abbottabad | Haripur | Mansehra | Shinkiari | Baffa | Mirpur (AJK) | Garhi Habibullah";
+
 export default function Hero() {
   return (
     <div id="home">
-      <section className="relative min-h-[calc(100svh-6rem)] pt-32 pb-16 lg:pt-48 lg:pb-32 flex items-center overflow-hidden bg-kips-navy-900 border-b border-white/5">
+      <section className="relative flex min-h-[calc(100svh-6rem)] items-center overflow-hidden border-b border-white/5 bg-kips-navy-900 pb-16 pt-32 lg:pb-32 lg:pt-48">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(254,198,1,0.1),transparent_30%)]" />
-        
-        <div className="container-custom relative z-10 grid lg:grid-cols-[1.1fr,1fr] items-center gap-12">
+
+        <div className="container-custom relative z-10 grid items-center gap-12 lg:grid-cols-[1.1fr,1fr]">
           <div className="text-white">
-            <span className="inline-block mb-4 px-3 py-1 bg-kips-red-600 text-white text-[0.65rem] font-black uppercase tracking-widest rounded-sm">
-              ACADEMIC YEAR 2026-27
+            <span className="mb-4 inline-block rounded-sm bg-kips-red-600 px-3 py-1 text-[0.65rem] font-black uppercase tracking-widest text-white">
+              A Project of Mashal Technical Education System
             </span>
-            <h1 className="text-7xl lg:text-[8.5rem] font-bold leading-[0.85] tracking-tighter font-display uppercase italic">
-              KIPS
+            <h1 className="font-display text-5xl font-bold uppercase leading-[1] tracking-tighter text-white lg:text-7xl">
+              Keyan Institute of
               <br />
-              ACADEMY
+              <span className="text-kips-yellow-500">Professional Studies</span>
             </h1>
+            <p className="mt-8 text-sm font-black uppercase tracking-[0.24em] text-white/70 lg:tracking-[0.3em]">
+              {regionLine}
+            </p>
+
             <div className="mt-8 flex flex-col gap-6">
-              <p className="text-white/90 text-lg lg:text-xl font-bold leading-tight">
+              <p className="text-lg font-bold leading-tight text-white/90 lg:text-xl">
                 Evening Skill Development Program
                 <br />
-                & Weekend Classes
-                <span className="block mt-2 text-kips-yellow-500 text-sm font-black uppercase tracking-widest">
-                  Evening: 2:00pm To 6:00pm
+                and Weekend Classes
+                <span className="mt-2 block text-sm font-black uppercase tracking-widest text-kips-yellow-500">
+                  Evening: 2:00 PM to 6:00 PM
                 </span>
               </p>
-              
-              {/* Urdu Slogan Cloud */}
+
               <div className="relative inline-block" dir="rtl">
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-4 rounded-2xl inline-flex flex-col items-center gap-1 shadow-2xl">
-                  <span className="text-3xl lg:text-4xl font-black text-kips-yellow-500 font-body leading-none">ہنر سیکھیں</span>
-                  <span className="text-sm lg:text-base font-bold text-white/80">اور اپنا مستقبل سنواریں</span>
+                <div className="inline-flex flex-col items-center gap-1 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 shadow-2xl backdrop-blur-md">
+                  <span className="font-body text-3xl font-black leading-none text-kips-yellow-500 lg:text-4xl">
+                    ہنر سیکھیں
+                  </span>
+                  <span className="text-sm font-bold text-white/80 lg:text-base">
+                    اور اپنا مستقبل سنواریں
+                  </span>
                 </div>
-                {/* Decorative Dots */}
-                <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-kips-red-600 animate-pulse" />
+                <div className="absolute -right-2 -top-2 h-4 w-4 animate-pulse rounded-full bg-kips-red-600" />
               </div>
             </div>
-            <p className="mt-6 text-white/60 text-sm max-w-sm leading-relaxed">
-              Exclusively designed for professional students and ambitious learners aiming for excellence in technical and academic sectors.
+
+            <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/60 lg:text-base">
+              Professional counseling, academic pathways, and career-focused training
+              for students who want practical skills with recognized progression.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-sm bg-kips-yellow-500 text-kips-navy-900 font-extrabold shadow-xl shadow-kips-yellow-500/20 hover:bg-white transition-all group"
+                className="group inline-flex items-center justify-center rounded-sm bg-kips-yellow-500 px-8 py-4 font-extrabold text-kips-navy-900 shadow-xl shadow-kips-yellow-500/20 transition-all hover:bg-white"
               >
-                ENROLL NOW <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                Enroll Now
+                <span className="ml-2 transition-transform group-hover:translate-x-1">
+                  →
+                </span>
               </a>
               <a
                 href="#programs"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-sm border border-white/20 text-white font-bold hover:bg-white/5 transition-all"
+                className="inline-flex items-center justify-center rounded-sm border border-white/20 px-8 py-4 font-bold text-white transition-all hover:bg-white/5"
               >
                 View Programs
               </a>
@@ -55,47 +69,52 @@ export default function Hero() {
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/3] rounded-sm border-[6px] border-kips-yellow-500 overflow-hidden shadow-2xl bg-kips-navy-800">
-              <img 
-                src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1200" 
-                alt="Professional Academic Environment" 
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm border-[6px] border-kips-yellow-500 bg-kips-navy-800 shadow-2xl">
+              <img
+                src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Professional academic environment"
+                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            {/* Excellence Card */}
-            <div className="absolute -bottom-10 -left-10 p-8 pt-10 bg-kips-red-600 text-white rounded-sm shadow-2xl max-w-[14rem]">
-              <span className="block text-4xl font-black leading-none">20+</span>
-              <span className="block text-[0.65rem] font-black uppercase tracking-widest mt-2 opacity-80 leading-tight">
-                Years of Excellence
+            <div className="absolute -bottom-10 -left-10 max-w-[14rem] rounded-sm bg-kips-red-600 p-8 pt-10 text-white shadow-2xl">
+              <span className="block text-4xl font-black leading-none">12+</span>
+              <span className="mt-2 block text-[0.65rem] font-black uppercase tracking-widest opacity-80">
+                Career-focused programs
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Admissions Bar */}
-      <div className="bg-kips-navy-900 py-6 border-b border-white/10">
-        <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="border-b border-white/10 bg-kips-navy-900 py-6">
+        <div className="container-custom flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex items-center gap-6">
-            <div className="w-14 h-14 rounded-sm bg-kips-red-600 flex items-center justify-center shadow-lg shadow-kips-red-600/30">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-kips-red-600 shadow-lg shadow-kips-red-600/30">
               <span className="text-2xl text-white">📢</span>
             </div>
             <div>
-              <h3 className="text-xl font-black text-kips-yellow-500 uppercase tracking-tight">ADMISSIONS OPEN 2026-27</h3>
-              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mt-1">
-                <p className="text-xs text-white/50 font-medium whitespace-nowrap">Limited seats available for the upcoming session.</p>
-                <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/20" />
-                <p className="text-[0.65rem] font-black text-kips-yellow-500 uppercase tracking-widest">
-                  Under Supervision: <span className="text-white">Prof: Sohail Ahmed Khan</span>
+              <h3 className="text-xl font-black uppercase tracking-tight text-kips-yellow-500">
+                Admissions Open 2026-27
+              </h3>
+              <div className="mt-1 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+                <p className="whitespace-nowrap text-xs font-medium text-white/50">
+                  Limited seats available for the upcoming session.
+                </p>
+                <div className="hidden h-1.5 w-1.5 rounded-full bg-white/20 md:block" />
+                <p className="text-[0.65rem] font-black uppercase tracking-widest text-kips-yellow-500">
+                  Under supervision: <span className="text-white">Prof. Sohail Ahmed Khan</span>
                 </p>
               </div>
-              <p className="mt-2 text-[0.6rem] text-white/40 font-bold uppercase tracking-[0.2em]">
-                For Online Registration & Classes Contact Us WhatsApp / Zoom App
+              <p className="mt-2 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/40">
+                For online registration and classes, contact us on WhatsApp or Zoom.
               </p>
             </div>
           </div>
-          <a href="#contact" className="px-10 py-4 bg-kips-red-600 text-white font-black uppercase tracking-widest rounded-sm shadow-xl shadow-kips-red-600/20 hover:bg-kips-red-700 transition-all">
-            ENROL NOW
+          <a
+            href="#contact"
+            className="rounded-sm bg-kips-red-600 px-10 py-4 font-black uppercase tracking-widest text-white shadow-xl shadow-kips-red-600/20 transition-all hover:bg-kips-red-700"
+          >
+            Enroll Now
           </a>
         </div>
       </div>

@@ -229,22 +229,22 @@ export default function Programs() {
             <div
               key={note.label}
               className={`rounded-sm border p-8 ${note.tone === "accent"
-                  ? "border-kips-red-600/30 bg-kips-red-600/10"
-                  : "border-kips-yellow-500/20 bg-white/5"
+                ? "border-kips-red-600/30 bg-kips-red-600/10"
+                : "border-kips-yellow-500/20 bg-white/5"
                 }`}
             >
               <span
                 className={`mb-4 inline-block rounded-sm px-3 py-1 text-[0.6rem] font-black uppercase tracking-widest ${note.tone === "accent"
-                    ? "bg-kips-red-600 text-white"
-                    : "bg-kips-yellow-500 text-kips-navy-900"
+                  ? "bg-kips-red-600 text-white"
+                  : "bg-kips-yellow-500 text-kips-navy-900"
                   }`}
               >
                 {note.label}
               </span>
               <p
                 className={`text-lg font-bold leading-relaxed lg:text-xl ${note.label === "اردو نوٹ" || note.label === "AIOU Special Notice"
-                    ? "font-body text-white/90"
-                    : "text-white"
+                  ? "font-body text-white/90"
+                  : "text-white"
                   }`}
                 dir={note.label === "اردو نوٹ" || note.label === "AIOU Special Notice" ? "rtl" : "ltr"}
               >

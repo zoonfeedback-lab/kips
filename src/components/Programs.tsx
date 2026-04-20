@@ -101,13 +101,33 @@ const categories: Category[] = [
     ],
   },
   {
-    name: "Dr. Mudassar Seminars (Education Psychologist)",
+    name: "Psychology & Parenting (Dr. Mudassar)",
     programs: [
       {
-        title: "Psychology & Parenting",
-        urduTitle: "نفسیات اور پیرنٹنگ",
-        detail: "Educational Psychology, Child Psychology, Parenting, and Educational Issues",
+        title: "Educational Psychology",
+        urduTitle: "تعلیمی نفسیات",
+        detail: "Professional guidance on learning theories, student behavior, and academic success.",
       },
+      {
+        title: "Child Psychology",
+        urduTitle: "بچوں کی نفسیات",
+        detail: "Understanding child development, mental health, and emotional well-being.",
+      },
+      {
+        title: "Parenting",
+        urduTitle: "پیرنٹنگ",
+        detail: "Effective parenting strategies, family dynamics, and raising healthy children.",
+      },
+      {
+        title: "Educational Issues",
+        urduTitle: "تعلیمی مسائل",
+        detail: "Identifying and resolving academic challenges and institutional issues.",
+      },
+    ],
+  },
+  {
+    name: "Dr. Mudassar Special Seminars",
+    programs: [
       {
         title: "Test Preparations",
         urduTitle: "ٹیسٹ کی تیاری",
@@ -125,22 +145,17 @@ const categories: Category[] = [
       },
     ],
   },
-  {
-    name: "Professor Khalid Seminars",
-    programs: [
-      {
-        title: "Test Preparations",
-        urduTitle: "ٹیسٹ کی تیاری",
-        detail: "Professional coaching for CSS, PMS, and competitive examinations",
-      },
-    ],
-  },
 ];
 
 const notes = [
   {
     label: "ADA / ADS Details",
     text: "ADA and ADS are associate degree pathways aligned with the old BA and BSc structure, with guided preparation and academic support for examinations.",
+    tone: "accent",
+  },
+  {
+    label: "Psychology & Parenting",
+    text: "Educational Psychology, Child Psychology, Parenting, and Educational Issues. Professional guidance and seminars led by Dr. Mudassar.",
     tone: "accent",
   },
   {

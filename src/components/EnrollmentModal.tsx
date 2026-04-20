@@ -18,9 +18,13 @@ const programs = [
   "FA / FSc",
   "Dress Designing",
   "Beautician",
-  "Psychology & Parenting",
+  "Educational Psychology",
+  "Child Psychology",
+  "Parenting",
+  "Educational Issues",
   "Test Preparations (ETEA/NTS)",
   "Cadet College & Interviews",
+  "English Grammar",
 ];
 
 const branches = [

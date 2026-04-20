@@ -53,9 +53,9 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
             }}
           >
             <img
-              src="/logos/main_logo.jpg"
-              alt="Keyan Institute of Professional Studies logo"
-              className="h-12 w-12 rounded-xl bg-white p-1 object-contain shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform hover:scale-105 lg:h-14 lg:w-14"
+              src="/KIPSLOGO.PNG"
+              alt="KIPS Logo"
+              className="h-12 w-auto object-contain transition-transform hover:scale-105 lg:h-16"
             />
             <div className="flex flex-col">
               <h3 className="font-display text-[1.1rem] font-bold tracking-tight text-white lg:text-[1.3rem]">

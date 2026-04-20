@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Keyan Institute of Professional Studies (KIPS)
 
-## Getting Started
+A high-fidelity, modern web platform for the **Keyan Institute of Professional Studies (KIPS)**. This project showcases the institute's academic programs, vocational training, and specialized seminars led by industry professionals.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Dynamic Admissions Portal**: Real-time admission status and session tracking for 2026-27.
+- **Categorized Program Explorer**:
+  - **IT & Digital Skills**: CIT, DIT, AI Tools, Graphic Designing.
+  - **Professional Diplomas**: Safety Officer, Montessori, English Language.
+  - **Academic Pathways**: B.Ed, ADA, ADS, FA/FSc coaching.
+  - **Vocational Training**: Dress Designing, Beautician, Nursery to FSc tuition.
+  - **Psychology & Parenting**: Specialized seminars by Dr. Mudassar on child behavior and educational psychology.
+- **Premium Design System**: 
+  - Glassmorphic UI components.
+  - Responsive layout for all device sizes.
+  - Modern micro-animations and interactive hover states.
+- **Online Enrollment**: Streamlined application form for prospective students.
+- **Contact & Support**: Multi-channel support including WhatsApp, Zoom, and educational counseling.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
+- **Logic**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Performance**: Optimized images with Next/Image and Sharp.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Getting Started
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js 18.x or later
+- npm or yarn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
 
-## Deploy on Vercel
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory (refer to `.env.example` if available).
+   > [!IMPORTANT]
+   > Do not commit your `.env` files to version control.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) to view the application.
+
+## 🛡️ Security & Privacy
+
+This project follows best practices to keep sensitive credentials secure:
+- **No Secrets in Code**: All API keys and contact details are managed via local components or environment variables.
+- **Environment Management**: `.env` files are excluded from the repository via `.gitignore`.
+- **Sanitized Documentation**: No private phone numbers or credentials are listed in this README.
+
+## 📄 License
+
+This project is private and proprietary to **Keyan Institute of Professional Studies**.

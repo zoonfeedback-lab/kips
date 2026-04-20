@@ -134,7 +134,7 @@ const categories: Category[] = [
         detail: "Professional coaching for ETEA and NTS examinations",
       },
       {
-        title: "Cadet College & Interviews",
+        title: "Cadet College Test Preparation & Interviews",
         urduTitle: "کیریئر اور داخلے",
         detail: "Cadet College Preparations and Interview preparation guidance",
       },
@@ -186,27 +186,37 @@ export default function Programs() {
           <div className="mb-4 hidden h-1 w-32 bg-kips-yellow-500 lg:block" />
         </div>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div className="flex flex-col gap-20">
           {categories.map((category) => (
-            <div key={category.name} className="flex flex-col gap-6">
-              <h3 className="border-l-4 border-kips-yellow-500 pl-4 text-xl font-black uppercase tracking-widest text-kips-yellow-500">
-                {category.name}
-              </h3>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div key={category.name} className="group/cat flex flex-col gap-8">
+              <div className="flex items-center gap-4">
+                <div className="h-8 w-1 bg-kips-yellow-500" />
+                <h3 className="text-2xl font-black uppercase tracking-widest text-white lg:text-3xl">
+                  {category.name}
+                </h3>
+                <div className="h-px flex-grow bg-white/10" />
+              </div>
+
+              <div className="flex gap-6 overflow-x-auto pb-8 no-scrollbar scroll-smooth">
                 {category.programs.map((program) => (
                   <article
                     key={program.title}
-                    className="group rounded-sm border border-white/5 bg-white/5 p-6 transition-all duration-300 hover:border-kips-yellow-500/30"
+                    className="group relative flex min-w-[280px] max-w-[320px] flex-shrink-0 flex-col gap-4 rounded-sm border border-white/10 bg-white/[0.03] p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-kips-yellow-500/40 hover:bg-white/[0.07] lg:min-w-[320px]"
                   >
-                    <h4 className="mb-1 text-lg font-bold uppercase tracking-tight text-white transition-colors group-hover:text-kips-yellow-500">
-                      {program.title}
-                    </h4>
-                    <div className="mb-3 text-lg font-bold text-white/40" dir="rtl">
-                      {program.urduTitle}
+                    <div className="absolute inset-0 bg-gradient-to-br from-kips-yellow-500/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                    <div className="relative z-10">
+                      <h4 className="font-display text-xl font-bold uppercase tracking-tight text-white transition-colors duration-300 group-hover:text-kips-yellow-500">
+                        {program.title}
+                      </h4>
+                      <div className="mt-2 font-body text-xl font-black text-white/30 transition-colors duration-300 group-hover:text-white/60" dir="rtl">
+                        {program.urduTitle}
+                      </div>
+                      <div className="my-6 h-px w-12 bg-white/10 transition-all duration-500 group-hover:w-full group-hover:bg-kips-yellow-500/30" />
+                      <p className="text-sm font-medium leading-relaxed text-white/50 transition-colors duration-300 group-hover:text-white/80">
+                        {program.detail}
+                      </p>
                     </div>
-                    <p className="text-sm leading-relaxed text-white/65">
-                      {program.detail}
-                    </p>
                   </article>
                 ))}
               </div>
@@ -218,27 +228,24 @@ export default function Programs() {
           {notes.map((note) => (
             <div
               key={note.label}
-              className={`rounded-sm border p-8 ${
-                note.tone === "accent"
+              className={`rounded-sm border p-8 ${note.tone === "accent"
                   ? "border-kips-red-600/30 bg-kips-red-600/10"
                   : "border-kips-yellow-500/20 bg-white/5"
-              }`}
+                }`}
             >
               <span
-                className={`mb-4 inline-block rounded-sm px-3 py-1 text-[0.6rem] font-black uppercase tracking-widest ${
-                  note.tone === "accent"
+                className={`mb-4 inline-block rounded-sm px-3 py-1 text-[0.6rem] font-black uppercase tracking-widest ${note.tone === "accent"
                     ? "bg-kips-red-600 text-white"
                     : "bg-kips-yellow-500 text-kips-navy-900"
-                }`}
+                  }`}
               >
                 {note.label}
               </span>
               <p
-                className={`text-lg font-bold leading-relaxed lg:text-xl ${
-                  note.label === "اردو نوٹ" || note.label === "AIOU Special Notice"
+                className={`text-lg font-bold leading-relaxed lg:text-xl ${note.label === "اردو نوٹ" || note.label === "AIOU Special Notice"
                     ? "font-body text-white/90"
                     : "text-white"
-                }`}
+                  }`}
                 dir={note.label === "اردو نوٹ" || note.label === "AIOU Special Notice" ? "rtl" : "ltr"}
               >
                 {note.text}

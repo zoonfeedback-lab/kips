@@ -42,3 +42,13 @@
     @apply max-w-[1240px] mx-auto px-5 lg:px-8;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

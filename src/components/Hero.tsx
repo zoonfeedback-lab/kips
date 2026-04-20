@@ -105,9 +105,16 @@ export default function Hero({ onEnrollClick }: HeroProps) {
                   Limited seats available for the upcoming session.
                 </p>
                 <div className="hidden h-1.5 w-1.5 rounded-full bg-white/20 md:block" />
-                <p className="text-[0.65rem] font-black uppercase tracking-widest text-kips-yellow-500">
-                  Under supervision: <span className="text-white">Professor Sohail Ahmad Khan and Dr Mudassir</span>
-                </p>
+                <div className="flex flex-col gap-1">
+                  <p className="text-[0.65rem] font-black uppercase tracking-widest text-kips-yellow-500">
+                    Under supervision:
+                  </p>
+                  <div className="flex flex-col text-[0.7rem] font-black uppercase tracking-tight text-white md:text-[0.75rem]">
+                    <span>Professor Sohail Ahmad Khan</span>
+                    <span>Dr. Mudassar (Education Psychologist)</span>
+                    {/* <span>Professor Khalid</span> */}
+                  </div>
+                </div>
               </div>
               <p className="mt-2 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/40">
                 For online registration and classes, contact us on WhatsApp or Zoom.

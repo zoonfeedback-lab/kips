@@ -34,9 +34,9 @@ export default function Footer() {
           <div className="flex flex-col">
             <div className="mb-6">
               <img
-                src="/logos/main_logo.jpg"
-                alt="Keyan Institute of Professional Studies footer logo"
-                className="h-16 w-16 rounded-xl bg-white p-2 object-contain shadow-xl"
+                src="/KIPSLOGO(C).png"
+                alt="KIPS Footer Logo"
+                className="h-16 w-auto object-contain transition-transform hover:scale-105"
               />
             </div>
             <h3 className="font-display text-2xl font-black uppercase leading-none tracking-tight text-white">

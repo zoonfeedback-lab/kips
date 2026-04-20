@@ -101,7 +101,7 @@ const categories: Category[] = [
     ],
   },
   {
-    name: "Dr. Mudassir Seminars",
+    name: "Dr. Mudassar Seminars (Education Psychologist)",
     programs: [
       {
         title: "Psychology & Parenting",
@@ -122,6 +122,16 @@ const categories: Category[] = [
         title: "English Grammar",
         urduTitle: "انگلش گرامر",
         detail: "Comprehensive English Grammar foundation for advanced learners",
+      },
+    ],
+  },
+  {
+    name: "Professor Khalid Seminars",
+    programs: [
+      {
+        title: "Test Preparations",
+        urduTitle: "ٹیسٹ کی تیاری",
+        detail: "Professional coaching for CSS, PMS, and competitive examinations",
       },
     ],
   },

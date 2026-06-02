@@ -1,68 +1,112 @@
 # Keyan Institute of Professional Studies (KIPS)
 
-A high-fidelity, modern web platform for the **Keyan Institute of Professional Studies (KIPS)**. This project showcases the institute's academic programs, vocational training, and specialized seminars led by industry professionals.
+A high-fidelity, modern, single-page web platform and online admissions portal for the **Keyan Institute of Professional Studies (KIPS)**. This project is a prominent educational platform under the **Mashal Technical Education System**, showcasing the institute's academic programs, vocational training, regional campus network, and specialized seminars led by industry professionals.
 
-## 🚀 Features
+---
 
-- **Dynamic Admissions Portal**: Real-time admission status and session tracking for 2026-27.
-- **Categorized Program Explorer**:
-  - **IT & Digital Skills**: CIT, DIT, AI Tools, Graphic Designing.
-  - **Professional Diplomas**: Safety Officer, Montessori, English Language.
-  - **Academic Pathways**: B.Ed, ADA, ADS, FA/FSc coaching.
-  - **Vocational Training**: Dress Designing, Beautician, Nursery to FSc tuition.
-  - **Psychology & Parenting**: Specialized seminars by Dr. Mudassar on child behavior and educational psychology.
-- **Premium Design System**: 
-  - Glassmorphic UI components.
-  - Responsive layout for all device sizes.
-  - Modern micro-animations and interactive hover states.
-- **Online Enrollment**: Streamlined application form for prospective students.
-- **Contact & Support**: Multi-channel support including WhatsApp, Zoom, and educational counseling.
+## 🚀 Key Features
+
+* **Single-Page Application (SPA)**: Smooth interactive sections with hash-linked navigation (`#home`, `#programs`, `#news`, `#affiliations`, `#branches`, `#contact`).
+* **Dynamic Admissions & Enrollment**: A premium glassmorphic modal form that collects student applications and submits them via a JSON API.
+* **Comprehensive Program Catalog**:
+  * **IT & Digital Skills**: Computer AI Tools, CIT, DIT, Graphic Designing.
+  * **Professional Diplomas**: Safety Officer, Montessori Diploma, Spoken English.
+  * **Academic Pathways**: B.Ed (1.5 / 2.5 Years), ADA (Associate Degree in Arts), ADS (Associate Degree in Science), FA/FSc coaching.
+  * **Vocational Training**: Dress Designing, Beautician training, and Nursery-to-FSc tuition support.
+  * **Psychology & Parenting Seminars**: Professional guidance and seminars on child behavior, learning dynamics, and educational issues conducted by Dr. Mudassar.
+  * **Special Seminars**: Test preparations (ETEA/NTS), Cadet College entrance and interview preparation, and advanced English grammar.
+* **Extensive Branch Directory**: Detailed network covering Abbottabad, Haripur (Shah Maqsood Campus), Mansehra, Shinkiari, Baffa, Mirpur (AJ&K), and Garhi Habibullah.
+* **Board & University Affiliations**: Built-in support for showcasing regional accreditations, including AIOU Islamabad, Trade Testing Board, SDC Peshawar, KPBTE Peshawar, Sarhad University Peshawar, and Mashal Technical Education System.
+* **Premium Theme**: Tailored Tailwind CSS v4 design with custom colors, dark-teal gradients, and micro-animations.
+
+---
+
+## 📁 Project Architecture & Directory Structure
+
+```
+kips/
+├── public/                # Static assets (Logos, branding banners, and icons)
+│   ├── logos/             # Affiliated boards/university logos
+│   └── KIPSLOGO(C).png    # Main institute logo
+├── scripts/               # Developer automation scripts
+│   ├── create-banner.js   # Script to generate banner assets
+│   └── svg-to-png.js      # Utility converting SVG vector logos to PNG format
+├── src/
+│   ├── app/               # Next.js App Router root directory
+│   │   ├── api/enroll/    # API endpoints
+│   │   │   └── route.ts   # Enrollment POST endpoint (validates and processes signups)
+│   │   ├── globals.css    # Tailwind CSS v4 directives, custom styles, and root variables
+│   │   ├── layout.tsx     # Site structure containing Google fonts (Inter & Playfair Display) & SEO Meta
+│   │   └── page.tsx       # Main Page component ("use client") integrating all UI sections
+│   └── components/        # Reusable presentation components
+│       ├── Navbar.tsx     # Responsive sticky header and navigation menu
+│       ├── Hero.tsx       # Hero section with Urdu/English call-outs & Admissions Open alert
+│       ├── Programs.tsx   # Grouped catalog of all educational courses & academic warnings
+│       ├── Affiliations.tsx# Affiliated universities, trade testing boards, and parent systems
+│       ├── BranchNetwork.tsx# Branch selector & campus locations (visual list)
+│       ├── ContactCTA.tsx # Quick WhatsApp links and direct emailing details
+│       ├── EnrollmentModal.tsx # Interactive glassmorphic modal with enrollment form
+│       └── Footer.tsx     # Bottom navigation directory, social links, and copyrights
+├── tailwind.config.ts     # Deprecated fallback/IDE autocomplete configuration for Tailwind
+├── postcss.config.mjs     # PostCSS setup running @tailwindcss/postcss
+└── tsconfig.json          # TypeScript configurations (with @/* paths pointing to ./src/*)
+```
+
+---
 
 ## 🛠️ Technology Stack
 
-- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
-- **Logic**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Performance**: Optimized images with Next/Image and Sharp.
+* **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
+* **Logic/Languages**: [TypeScript](https://www.typescriptlang.org/) / [React 19](https://react.dev/)
+* **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with PostCSS
+* **Image Compression**: `sharp` for optimized production assets
+
+---
 
 ## 📦 Getting Started
 
 ### Prerequisites
 
-- Node.js 18.x or later
-- npm or yarn
+* Node.js 18.x or later
+* npm or yarn
 
 ### Installation
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   ```
-
-2. Install dependencies:
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Set up environment variables:
-   Create a `.env.local` file in the root directory (refer to `.env.example` if available).
-   > [!IMPORTANT]
-   > Do not commit your `.env` files to version control.
-
-4. Run the development server:
+2. Run the development server:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) to view the application.
+3. Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
+
+---
+
+## 🔄 API & Form Flow
+
+The online enrollment form uses a POST request endpoint:
+* **Endpoint**: `/api/enroll`
+* **Request Payload**:
+  ```json
+  {
+    "name": "Student Name",
+    "phone": "03XX-XXXXXXX",
+    "email": "student@example.com",
+    "program": "Computer AI Tools",
+    "branch": "Haripur (Shah Maqsood)",
+    "message": "Optional message"
+  }
+  ```
+* **Current Action**: Validates input fields, prints student data in a formatted card directly to the server terminal console, and returns `{ success: true }`.
+* **Pro-tip**: You can connect an email provider (like Resend) or database adapter in [route.ts](file:///f:/Zoon/kips/src/app/api/enroll/route.ts) to send or record these leads in real time.
+
+---
 
 ## 🛡️ Security & Privacy
 
-This project follows best practices to keep sensitive credentials secure:
-- **No Secrets in Code**: All API keys and contact details are managed via local components or environment variables.
-- **Environment Management**: `.env` files are excluded from the repository via `.gitignore`.
-- **Sanitized Documentation**: No private phone numbers or credentials are listed in this README.
-
-## 📄 License
-
-This project is private and proprietary to **Keyan Institute of Professional Studies**.
+* **Secrets Management**: No API keys, database credentials, or private contact lines should be committed directly to GitHub. Ensure any production credentials are configuration parameters in a `.env.local` file (which is excluded from Git via `.gitignore`).
+* **Production Build**: Before deploying, run `npm run build` to verify there are no compilation or TypeScript errors.

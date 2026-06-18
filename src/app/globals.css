@@ -4,15 +4,15 @@
   --font-display: var(--font-display), serif;
   --font-body: var(--font-body), sans-serif;
 
-  --color-kips-navy-900: #006c67;
-  --color-kips-navy-800: #00817c;
-  --color-kips-navy-700: #009691;
+  --color-kips-navy-900: #0855A4;
+  --color-kips-navy-800: #06429e;
+  --color-kips-navy-700: #0a69c8;
 
-  --color-kips-yellow-500: #fec601;
-  --color-kips-yellow-600: #ca8a04;
+  --color-kips-yellow-500: #FAB920;
+  --color-kips-yellow-600: #d99a10;
 
-  --color-kips-red-600: #d90429;
-  --color-kips-red-700: #b90322;
+  --color-kips-red-600: #CB1A2C;
+  --color-kips-red-700: #a81424;
 }
 
 @layer base {
@@ -24,8 +24,8 @@
   body {
     @apply max-w-[100vw] overflow-x-hidden antialiased text-white font-body bg-kips-navy-900;
     background: 
-      radial-gradient(circle at 80% 20%, rgba(254, 198, 1, 0.05), transparent 40%),
-      #006c67;
+      radial-gradient(circle at 80% 20%, rgba(250, 185, 32, 0.08), transparent 40%),
+      #0855A4;
   }
 
   h1, h2, h3, h4, h5, h6 {

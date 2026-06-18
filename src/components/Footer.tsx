@@ -34,7 +34,7 @@ export default function Footer() {
           <div className="flex flex-col">
             <div className="mb-6">
               <img
-                src="/KIPSLOGO(C).png"
+                src="/logo.PNG"
                 alt="KIPS Footer Logo"
                 className="h-16 w-auto object-contain transition-transform hover:scale-105"
               />

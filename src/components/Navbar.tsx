@@ -53,7 +53,7 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
             }}
           >
             <img
-              src="/KIPSLOGO(C).png"
+              src="/logo.PNG"
               alt="KIPS Logo"
               className="h-12 w-auto object-contain transition-transform hover:scale-105 lg:h-16"
             />

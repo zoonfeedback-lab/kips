@@ -13,33 +13,35 @@ const affiliations = [
 
 export default function Affiliations() {
   const headerRef = useScrollAnimation<HTMLDivElement>();
-  const gridRef   = useStaggerAnimation<HTMLDivElement>({ staggerMs: 90 });
+  const gridRef   = useStaggerAnimation<HTMLDivElement>({ staggerMs: 60 });
 
   return (
-    <section id="affiliations" className="scroll-mt-24 bg-white py-24">
+    <section id="affiliations" className="scroll-mt-20 bg-white py-20">
       <div className="container-custom">
-        <div ref={headerRef} className="mb-14 text-center">
-          <span className="mb-3 inline-block rounded-full bg-kips-navy-900/8 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-kips-navy-900">
-            Accredited Excellence
-          </span>
-          <h2 className="font-display text-4xl font-extrabold tracking-tight text-kips-text-900 lg:text-5xl">
-            Regional and Board Affiliations
+        <div ref={headerRef} className="mb-12 text-center">
+          <span className="section-label">RECOGNIZED PARTNERS</span>
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-kips-text-900 lg:text-4xl">
+            Board and University Affiliations
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-[0.92rem] leading-relaxed text-kips-text-700">
-            Our programs are recognized by leading national boards and universities, ensuring your qualification carries real value.
+          <p className="mx-auto mt-3 max-w-xl text-sm text-kips-text-400">
+            Our degrees, diplomas, and technical certifications are fully accredited and recognized across Pakistan.
           </p>
         </div>
 
-        <div ref={gridRef} className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
+        <div ref={gridRef} className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
           {affiliations.map((item) => (
             <article
               key={item.name}
-              className="group flex flex-col items-center justify-center gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-kips-navy-900/15 hover:shadow-xl"
+              className="group flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-150 bg-white p-5 shadow-xs transition-all duration-200 hover:border-gray-300"
             >
-              <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-xl bg-gray-50 p-1 opacity-50 grayscale transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 group-hover:bg-white group-hover:shadow-md">
-                <img src={item.logo} alt={item.name} className="h-full w-full object-contain" />
+              <div className="relative flex h-16 w-full items-center justify-center p-1">
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  className="h-12 w-auto object-contain opacity-75 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                />
               </div>
-              <p className="px-1 text-center text-[0.62rem] font-bold uppercase tracking-widest text-kips-text-400 transition-colors duration-300 group-hover:text-kips-navy-900">
+              <p className="text-center text-[0.6rem] font-bold uppercase tracking-wider text-kips-text-400 transition-colors group-hover:text-kips-navy-900">
                 {item.name}
               </p>
             </article>

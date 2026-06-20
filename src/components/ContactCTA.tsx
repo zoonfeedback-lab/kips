@@ -1,14 +1,10 @@
+"use client";
+
+import { useScrollAnimation, useStaggerAnimation } from "@/hooks/useScrollAnimation";
+
 const whatsappContacts = [
-  {
-    label: "WhatsApp Helpline",
-    number: "0314-4048842",
-    href: "https://wa.me/923144048842",
-  },
-  {
-    label: "Admissions WhatsApp",
-    number: "0301-9884455",
-    href: "https://wa.me/923019884455",
-  },
+  { label: "WhatsApp Helpline",     number: "0314-4048842", href: "https://wa.me/923144048842" },
+  { label: "Admissions WhatsApp",   number: "0301-9884455", href: "https://wa.me/923019884455" },
 ];
 
 type ContactCTAProps = {
@@ -16,62 +12,75 @@ type ContactCTAProps = {
 };
 
 export default function ContactCTA({ onEnrollClick }: ContactCTAProps) {
+  const leftRef     = useScrollAnimation<HTMLDivElement>();
+  const contactsRef = useStaggerAnimation<HTMLDivElement>({ staggerMs: 120 });
+
   return (
-    <section id="contact" className="bg-kips-yellow-500 py-12 lg:py-16">
-      <div className="container-custom flex flex-col items-center justify-between gap-12 lg:flex-row">
-        <div className="max-w-xs">
-          <h2 className="mb-2 text-3xl font-black uppercase leading-none tracking-tighter text-kips-navy-900 lg:text-4xl">
+    <section id="contact" className="relative overflow-hidden bg-kips-navy-900 py-16 lg:py-20">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,rgba(250,185,32,0.10),transparent_55%)]" />
+
+      <div className="container-custom relative z-10 flex flex-col items-center justify-between gap-12 lg:flex-row">
+        {/* Left */}
+        <div ref={leftRef} className="max-w-sm">
+          <span className="mb-3 inline-block rounded-full bg-white/10 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-widest text-kips-yellow-500">
+            Get In Touch
+          </span>
+          <h2 className="font-display mb-3 text-3xl font-extrabold leading-tight tracking-tight text-white lg:text-4xl">
             Call or WhatsApp Us
           </h2>
-          <p className="text-sm font-bold uppercase tracking-widest text-kips-navy-900/60">
-            Get personalized counseling and admissions support
+          <p className="text-sm font-medium text-white/55">
+            Get personalized counseling and admissions support — we're here to help you choose the right program.
           </p>
           <button
             onClick={onEnrollClick}
-            className="mt-6 inline-flex rounded-lg bg-kips-navy-900 px-6 py-3 text-xs font-black uppercase tracking-widest text-kips-yellow-500 shadow-xl transition-all hover:-translate-y-0.5 hover:bg-white hover:text-kips-navy-900 cursor-pointer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-kips-yellow-500 px-7 py-3 text-sm font-bold text-kips-navy-900 shadow-xl shadow-kips-yellow-500/20 transition-all hover:-translate-y-0.5 hover:bg-kips-yellow-600 hover:shadow-kips-yellow-500/30 cursor-pointer"
           >
-            Enroll Online Now
+            Enroll Online Now <span>→</span>
           </button>
         </div>
 
-        <div className="flex w-full flex-col items-center gap-6 md:flex-row lg:w-auto lg:gap-12">
-          <div className="flex w-full flex-col gap-4 md:w-auto">
+        {/* Right — Contact Cards */}
+        <div className="flex w-full flex-col gap-5 md:flex-row lg:w-auto lg:gap-8">
+          <div ref={contactsRef} className="flex flex-col gap-4">
             {whatsappContacts.map((contact) => (
-              <div key={contact.number} className="flex items-center gap-6 group">
-                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-kips-navy-900 shadow-xl transition-transform group-hover:scale-110">
-                  <span className="text-2xl text-kips-yellow-500">📞</span>
+              <a
+                key={contact.number}
+                href={contact.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/8 p-5 backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:border-kips-yellow-500/30 hover:-translate-y-0.5"
+              >
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-kips-yellow-500 shadow-lg shadow-kips-yellow-500/20 transition-transform group-hover:scale-110">
+                  <span className="text-xl text-kips-navy-900">📞</span>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-kips-navy-900/50">
+                <div>
+                  <span className="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/40">
                     {contact.label}
                   </span>
-                  <a
-                    href={contact.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-2xl font-black leading-none tracking-tighter text-kips-navy-900 transition-colors hover:text-white lg:text-3xl"
-                  >
+                  <span className="block text-xl font-extrabold leading-tight tracking-tight text-white group-hover:text-kips-yellow-500 transition-colors lg:text-2xl">
                     {contact.number}
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </a>
             ))}
-            <p className="pt-2 text-[0.65rem] font-black uppercase tracking-[0.2em] text-kips-navy-900/50">
+            <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/30">
               Click any number to open WhatsApp chat.
             </p>
           </div>
 
-          <div className="hidden h-16 w-px bg-kips-navy-900/10 lg:block" />
+          <div className="hidden w-px self-stretch bg-white/10 lg:block" />
 
-          <div className="flex w-full items-center gap-6 md:w-auto">
-            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-kips-navy-900 shadow-xl">
-              <span className="text-2xl text-kips-yellow-500">✉️</span>
+          {/* Email */}
+          <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/8 p-5 backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:border-white/20">
+            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white/15 shadow-lg">
+              <span className="text-xl">✉️</span>
             </div>
             <div>
-              <div className="mb-1 text-xl font-black leading-none tracking-tight text-kips-navy-900 lg:text-2xl">
+              <span className="block text-[0.6rem] font-bold uppercase tracking-[0.18em] text-white/40">Email Us</span>
+              <div className="text-base font-bold leading-tight tracking-tight text-white lg:text-lg">
                 k.13.10.13@gmail.com
               </div>
-              <p className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-kips-navy-900/50">
+              <p className="mt-1 text-[0.6rem] font-semibold uppercase tracking-widest text-white/35">
                 Zoom sessions available
               </p>
             </div>

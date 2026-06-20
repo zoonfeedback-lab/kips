@@ -2,13 +2,17 @@
 
 import { useState } from "react";
 import Affiliations from "@/components/Affiliations";
+import WhyKIPS from "@/components/WhyKIPS";
 import BranchNetwork from "@/components/BranchNetwork";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Programs from "@/components/Programs";
+import StatsBar from "@/components/StatsBar";
 import EnrollmentModal from "@/components/EnrollmentModal";
+import ScrollProgress from "@/components/ScrollProgress";
+import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
@@ -18,21 +22,26 @@ export default function Home() {
 
   return (
     <>
+      {/* Fixed UI chrome */}
+      <ScrollProgress />
+      <BackToTop />
+
       <Navbar onEnrollClick={openEnrollModal} />
       <main>
         <Hero onEnrollClick={openEnrollModal} />
+        <StatsBar />
         <Programs />
+        <WhyKIPS />
         <Affiliations />
         <BranchNetwork />
         <ContactCTA onEnrollClick={openEnrollModal} />
       </main>
       <Footer />
-      
-      <EnrollmentModal 
-        isOpen={isEnrollModalOpen} 
-        onClose={closeEnrollModal} 
+
+      <EnrollmentModal
+        isOpen={isEnrollModalOpen}
+        onClose={closeEnrollModal}
       />
     </>
   );
 }
-

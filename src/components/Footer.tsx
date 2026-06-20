@@ -1,7 +1,8 @@
 const linkGroups = [
   {
     title: "Explore",
-    items: ["Home", "Programs", "Affiliations", "Branches"],
+    items: ["Home", "Programs", "Why KIPS", "Affiliations", "Branches"],
+    hrefs: ["#home", "#programs", "#why-kips", "#affiliations", "#branches"],
   },
   {
     title: "Programs",
@@ -11,6 +12,7 @@ const linkGroups = [
       "Academic Pathways",
       "Vocational Training",
     ],
+    hrefs: ["#programs", "#programs", "#programs", "#programs"],
   },
   {
     title: "Contact Information",
@@ -20,6 +22,7 @@ const linkGroups = [
       "0301-9884455",
       "k.13.10.13@gmail.com",
     ],
+    hrefs: ["#branches", "tel:+923144048842", "tel:+923019884455", "mailto:k.13.10.13@gmail.com"],
   },
 ];
 
@@ -28,58 +31,64 @@ const regionLine =
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-white/5 bg-kips-navy-900 py-16 lg:py-24">
+    <footer className="w-full bg-kips-navy-900 py-16 lg:py-20">
       <div className="container-custom">
-        <div className="mb-20 grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-[1.5fr,repeat(3,1fr)] lg:gap-24">
-          <div className="flex flex-col">
-            <div className="mb-6">
-              <img
-                src="/logo.PNG"
-                alt="KIPS Footer Logo"
-                className="h-16 w-auto object-contain transition-transform hover:scale-105"
-              />
+        <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr,repeat(3,1fr)] lg:gap-16">
+          {/* Brand col */}
+          <div className="flex flex-col gap-5">
+            <img
+              src="/logo.PNG"
+              alt="KIPS Footer Logo"
+              className="h-14 w-auto object-contain transition-opacity hover:opacity-80"
+            />
+            <div>
+              <h3 className="font-display text-xl font-extrabold uppercase leading-tight tracking-tight text-white">
+                Keyan Institute of
+                <span className="mt-1 block text-sm font-semibold text-kips-yellow-500 normal-case tracking-normal">
+                  Professional Studies (KIPS)
+                </span>
+              </h3>
             </div>
-            <h3 className="font-display text-2xl font-black uppercase leading-none tracking-tight text-white">
-              Keyan Institute of
-              <span className="mt-1 block text-sm text-kips-yellow-500 lg:text-base">
-                Professional Studies (KIPS)
-              </span>
-            </h3>
-            <span className="mb-4 mt-3 text-[0.6rem] font-black uppercase tracking-[0.24em] text-white/40">
+            <span className="text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-white/35">
               {regionLine}
             </span>
-            <p className="max-w-sm text-sm font-medium leading-relaxed text-white/60">
-              A project of Mashal Technical Education System, helping students build
-              strong academic, technical, and professional futures.
+            <p className="max-w-xs text-sm font-medium leading-relaxed text-white/50">
+              A project of Mashal Technical Education System, helping students
+              build strong academic, technical, and professional futures.
             </p>
           </div>
 
+          {/* Link groups */}
           {linkGroups.map((group) => (
-            <div key={group.title} className="flex flex-col">
-              <h4 className="mb-8 text-[0.65rem] font-black uppercase tracking-[0.25em] text-kips-yellow-500">
+            <div key={group.title} className="flex flex-col gap-6">
+              <h4 className="text-[0.62rem] font-extrabold uppercase tracking-[0.28em] text-kips-yellow-500">
                 {group.title}
               </h4>
-              <div className="flex flex-col gap-4">
-                {group.items.map((item) => (
-                  <p
+              <div className="flex flex-col gap-3">
+                {group.items.map((item, i) => (
+                  <a
                     key={item}
-                    className="text-[0.85rem] font-medium text-white/60 transition-colors hover:text-white"
+                    href={group.hrefs[i]}
+                    className="text-[0.84rem] font-medium text-white/50 transition-colors hover:text-white"
                   >
                     {item}
-                  </p>
+                  </a>
                 ))}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-8 border-t border-white/5 pt-12 text-[0.7rem] font-bold uppercase tracking-widest text-white/30 md:flex-row">
-          <p>© 2026 Keyan Institute of Professional Studies. Built for growth.</p>
-          <div className="flex gap-10">
-            <a href="#contact" className="transition-colors hover:text-white">
+        {/* Bottom bar */}
+        <div className="flex flex-col items-center justify-between gap-5 border-t border-white/8 pt-10 md:flex-row">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-widest text-white/25">
+            © 2026 Keyan Institute of Professional Studies. Built for growth.
+          </p>
+          <div className="flex gap-8">
+            <a href="#contact" className="text-[0.68rem] font-semibold uppercase tracking-widest text-white/25 transition-colors hover:text-white">
               Contact
             </a>
-            <a href="#programs" className="transition-colors hover:text-white">
+            <a href="#programs" className="text-[0.68rem] font-semibold uppercase tracking-widest text-white/25 transition-colors hover:text-white">
               Programs
             </a>
           </div>

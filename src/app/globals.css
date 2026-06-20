@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-display), serif;
+  --font-display: var(--font-display), sans-serif;
   --font-body: var(--font-body), sans-serif;
 
   --color-kips-navy-900: #0855A4;
@@ -13,19 +13,105 @@
 
   --color-kips-red-600: #CB1A2C;
   --color-kips-red-700: #a81424;
+
+  --color-kips-light-50: #f7f8fc;
+  --color-kips-light-100: #eef0f8;
+
+  --color-kips-text-900: #1a2235;
+  --color-kips-text-700: #3b4a68;
+  --color-kips-text-400: #8a96b0;
 }
 
+/* ─── Scroll Reveal Animations ─────────────────────────────── */
+.animate-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Slide from left */
+.animate-hidden-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-visible-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.animate-hidden-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-visible-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale in */
+.animate-hidden-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-visible-scale {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── Keyframes ──────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes progress-grow {
+  from { width: 0; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+.animate-pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: currentColor;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
 @layer base {
   :root {
     --color-stone-100: #f5f5f5;
-    --color-stone-50: #fafafa;
+    --color-stone-50:  #fafafa;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply max-w-[100vw] overflow-x-hidden antialiased text-white font-body bg-kips-navy-900;
-    background: 
-      radial-gradient(circle at 80% 20%, rgba(250, 185, 32, 0.08), transparent 40%),
-      #0855A4;
+    @apply max-w-[100vw] overflow-x-hidden antialiased font-body bg-white text-kips-text-900;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -37,18 +123,44 @@
   }
 }
 
+/* ─── Components ────────────────────────────────────────────── */
 @layer components {
   .container-custom {
     @apply max-w-[1240px] mx-auto px-5 lg:px-8;
   }
+
+  .edu-card {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-sm 
+           transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .btn-orange {
+    @apply inline-flex items-center justify-center rounded-full 
+           bg-kips-yellow-500 px-7 py-3 font-semibold text-kips-text-900
+           shadow-lg shadow-kips-yellow-500/20 transition-all 
+           hover:bg-kips-yellow-600 hover:-translate-y-0.5 cursor-pointer;
+  }
+
+  .btn-blue-outline {
+    @apply inline-flex items-center justify-center rounded-full 
+           border-2 border-kips-navy-900 px-7 py-3 font-semibold text-kips-navy-900
+           transition-all hover:bg-kips-navy-900 hover:text-white cursor-pointer;
+  }
+
+  /* Filter tab pill */
+  .filter-tab {
+    @apply rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap;
+  }
+  .filter-tab-active {
+    @apply bg-kips-navy-900 text-white shadow-md;
+  }
+  .filter-tab-inactive {
+    @apply bg-gray-100 text-kips-text-700 hover:bg-gray-200;
+  }
 }
 
+/* ─── Utilities ─────────────────────────────────────────────── */
 @layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

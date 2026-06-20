@@ -22,14 +22,27 @@ export default {
           600: "#CB1A2C",
           700: "#a81424",
         },
+        "kips-light": {
+          50: "#f7f8fc",
+          100: "#eef0f8",
+        },
+        "kips-text": {
+          900: "#1a2235",
+          700: "#3b4a68",
+          400: "#8a96b0",
+        },
       },
       fontFamily: {
-        display: ["var(--font-display)", "serif"],
+        display: ["var(--font-display)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"],
       },
       borderRadius: {
-        'xl-2': '1.25rem',
-      }
+        "xl-2": "1.25rem",
+      },
+      backgroundOpacity: {
+        8: "0.08",
+        12: "0.12",
+      },
     },
   },
   plugins: [],

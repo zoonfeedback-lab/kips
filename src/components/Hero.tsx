@@ -8,122 +8,141 @@ type HeroProps = {
 export default function Hero({ onEnrollClick }: HeroProps) {
   return (
     <div id="home">
-      <section className="relative flex min-h-[calc(100svh-6rem)] items-center overflow-hidden border-b border-white/5 bg-kips-navy-900 pb-16 pt-32 lg:pb-32 lg:pt-48">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(254,198,1,0.1),transparent_30%)]" />
+      {/* Hero Section — keeps brand blue background */}
+      <section className="relative flex min-h-[calc(100svh-6rem)] items-center overflow-hidden bg-kips-navy-900 pb-16 pt-24 lg:pb-28 lg:pt-36">
+        {/* Decorative radial glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(250,185,32,0.13),transparent_55%)]" />
+        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-kips-yellow-500/5 blur-3xl" />
 
-        <div className="container-custom relative z-10 grid items-center gap-12 lg:grid-cols-[1.1fr,1fr]">
+        <div className="container-custom relative z-10 grid items-center gap-10 lg:grid-cols-[1.15fr,1fr]">
+          {/* Left — Text */}
           <div className="text-white">
-            <span className="mb-4 inline-block rounded-sm bg-kips-red-600 px-3 py-1 text-[0.65rem] font-black uppercase tracking-widest text-white">
+            {/* Badge */}
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-widest text-kips-yellow-500 backdrop-blur-sm ring-1 ring-white/10">
+              <span className="h-1.5 w-1.5 rounded-full bg-kips-yellow-500 animate-pulse" />
               A Project of Mashal Technical Education System
             </span>
-            <h1 className="font-display text-5xl font-bold uppercase leading-[1] tracking-tighter text-white lg:text-7xl">
+
+            {/* Heading */}
+            <h1 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white lg:text-6xl xl:text-7xl">
               Keyan Institute of
               <br />
               <span className="text-kips-yellow-500">Professional Studies</span>
             </h1>
-            <p className="mt-8 text-sm font-black uppercase tracking-[0.24em] text-white/70 lg:tracking-[0.3em]">
+
+            {/* Region */}
+            <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-white/50">
               {regionLine}
             </p>
 
-            <div className="mt-8 flex flex-col gap-6">
-              <p className="text-lg font-bold leading-tight text-white/90 lg:text-xl">
+            {/* Sub-headline */}
+            <div className="mt-7 flex flex-col gap-4">
+              <p className="text-lg font-semibold leading-snug text-white/85 lg:text-xl">
                 Evening Skill Development Program
                 <br />
                 and Weekend Classes
-                <span className="mt-2 block text-sm font-black uppercase tracking-widest text-kips-yellow-500">
-                  Evening: 2:00 PM to 6:00 PM
+                <span className="mt-1.5 block text-sm font-bold uppercase tracking-widest text-kips-yellow-500">
+                  Evening: 2:00 PM – 6:00 PM
                 </span>
               </p>
 
+              {/* Urdu tagline */}
               <div className="relative inline-block" dir="rtl">
-                <div className="inline-flex flex-col items-center gap-1 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 shadow-2xl backdrop-blur-md">
+                <div className="inline-flex flex-col items-center gap-1 rounded-2xl border border-white/15 bg-white/8 px-6 py-4 shadow-2xl backdrop-blur-md">
                   <span className="font-body text-3xl font-black leading-none text-kips-yellow-500 lg:text-4xl">
                     ہنر سیکھیں
                   </span>
-                  <span className="text-sm font-bold text-white/80 lg:text-base">
+                  <span className="text-sm font-semibold text-white/75 lg:text-base">
                     اور اپنا مستقبل سنواریں
                   </span>
                 </div>
-                <div className="absolute -right-2 -top-2 h-4 w-4 animate-pulse rounded-full bg-kips-red-600" />
+                <div className="absolute -right-2 -top-2 h-3.5 w-3.5 animate-pulse rounded-full bg-kips-red-600 shadow-lg shadow-kips-red-600/40" />
               </div>
             </div>
 
-            <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/60 lg:text-base">
-              Professional counseling, academic pathways, and career-focused training
-              for students who want practical skills with recognized progression.
+            <p className="mt-6 max-w-lg text-[0.92rem] leading-relaxed text-white/55">
+              Professional counseling, academic pathways, and career-focused
+              training for students who want practical skills with recognized
+              progression.
             </p>
 
+            {/* CTAs */}
             <div className="mt-10 flex flex-wrap gap-4">
               <button
                 onClick={onEnrollClick}
-                className="group inline-flex items-center justify-center rounded-sm bg-kips-yellow-500 px-8 py-4 font-extrabold text-kips-navy-900 shadow-xl shadow-kips-yellow-500/20 transition-all hover:bg-white cursor-pointer"
+                className="group inline-flex items-center gap-2 rounded-full bg-kips-yellow-500 px-8 py-3.5 text-sm font-bold text-kips-navy-900 shadow-xl shadow-kips-yellow-500/25 transition-all hover:-translate-y-0.5 hover:bg-kips-yellow-600 hover:shadow-2xl cursor-pointer"
               >
                 Enroll Now
-                <span className="ml-2 transition-transform group-hover:translate-x-1">
-                  →
-                </span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
               </button>
               <a
                 href="#programs"
-                className="inline-flex items-center justify-center rounded-sm border border-white/20 px-8 py-4 font-bold text-white transition-all hover:bg-white/5"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-white/25 px-8 py-3.5 text-sm font-bold text-white transition-all hover:border-white/60 hover:bg-white/8"
               >
                 View Programs
               </a>
             </div>
           </div>
 
+          {/* Right — Image Card */}
           <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-sm border-[6px] border-kips-yellow-500 bg-kips-navy-800 shadow-2xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border-4 border-kips-yellow-500/40 shadow-2xl shadow-black/40">
               <img
                 src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1200"
                 alt="Professional academic environment"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-kips-navy-900/50 to-transparent" />
             </div>
-            <div className="absolute -bottom-10 -left-10 max-w-[14rem] rounded-sm bg-kips-red-600 p-8 pt-10 text-white shadow-2xl">
-              <span className="block text-4xl font-black leading-none">12+</span>
-              <span className="mt-2 block text-[0.65rem] font-black uppercase tracking-widest opacity-80">
+            {/* Floating stat card */}
+            <div className="absolute -bottom-8 -left-6 rounded-2xl bg-kips-red-600 p-6 shadow-2xl shadow-kips-red-600/30">
+              <span className="block text-4xl font-extrabold leading-none text-white">12+</span>
+              <span className="mt-1 block text-[0.6rem] font-bold uppercase tracking-widest text-white/80">
                 Career-focused programs
+              </span>
+            </div>
+            {/* Floating badge top-right */}
+            <div className="absolute -right-4 -top-4 rounded-xl bg-white px-4 py-2 shadow-xl">
+              <span className="block text-[0.6rem] font-black uppercase tracking-widest text-kips-navy-900">
+                Board Certified
+              </span>
+              <span className="block text-[0.55rem] text-kips-text-400">
+                AIOU · TTB · KPBTE · SDC
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="border-b border-white/10 bg-kips-navy-900 py-6">
-        <div className="container-custom flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="flex items-center gap-6">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-kips-red-600 shadow-lg shadow-kips-red-600/30">
-              <span className="text-2xl text-white">📢</span>
+      {/* Admissions Banner — light on dark strip */}
+      <div className="bg-kips-navy-800 py-5">
+        <div className="container-custom flex flex-col items-center justify-between gap-5 md:flex-row">
+          <div className="flex items-center gap-5">
+            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-kips-yellow-500 shadow-lg">
+              <span className="text-xl">📢</span>
             </div>
             <div>
-              <h3 className="text-xl font-black uppercase tracking-tight text-kips-yellow-500">
-                Admissions Open 2026-27
+              <h3 className="text-base font-bold uppercase tracking-tight text-kips-yellow-500">
+                Admissions Open 2026–27
               </h3>
-              <div className="mt-1 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-                <p className="whitespace-nowrap text-xs font-medium text-white/50">
-                  Limited seats available for the upcoming session.
+              <div className="mt-0.5 flex flex-wrap items-center gap-x-4 gap-y-1">
+                <p className="text-xs font-medium text-white/50">
+                  Limited seats — register now.
                 </p>
-                <div className="hidden h-1.5 w-1.5 rounded-full bg-white/20 md:block" />
-                <div className="flex flex-col gap-1">
-                  <p className="text-[0.65rem] font-black uppercase tracking-widest text-kips-yellow-500">
-                    Under supervision:
-                  </p>
-                  <div className="flex flex-col text-[0.7rem] font-black uppercase tracking-tight text-white md:text-[0.75rem]">
-                    <span>Professor Sohail Ahmad Khan</span>
-                    <span>Dr. Mudassar (Education Psychologist)</span>
-                    {/* <span>Professor Khalid</span> */}
-                  </div>
+                <div className="flex flex-col text-[0.65rem] font-semibold uppercase tracking-tight text-white/80">
+                  <span>Under supervision: Professor Sohail Ahmad Khan</span>
+                  <span>Dr. Mudassar (Education Psychologist)</span>
                 </div>
               </div>
-              <p className="mt-2 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-white/40">
-                For online registration and classes, contact us on WhatsApp or Zoom.
+              <p className="mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-white/35">
+                Online registration & classes via WhatsApp / Zoom
               </p>
             </div>
           </div>
           <button
             onClick={onEnrollClick}
-            className="rounded-sm bg-kips-red-600 px-10 py-4 font-black uppercase tracking-widest text-white shadow-xl shadow-kips-red-600/20 transition-all hover:bg-kips-red-700 cursor-pointer"
+            className="flex-shrink-0 rounded-full bg-kips-yellow-500 px-8 py-3 text-sm font-bold text-kips-navy-900 shadow-lg shadow-kips-yellow-500/20 transition-all hover:bg-kips-yellow-600 cursor-pointer"
           >
             Enroll Now
           </button>

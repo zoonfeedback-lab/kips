@@ -1,11 +1,9 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import EnrollmentModal from "@/components/EnrollmentModal";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
 import { Icons } from "@/components/Icons";
@@ -23,17 +21,21 @@ export default function CourseDetailsPage() {
   const router = useRouter();
   const slug = params?.slug as string;
 
-  const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
-  const openEnrollModal = () => setIsEnrollModalOpen(true);
-  const closeEnrollModal = () => setIsEnrollModalOpen(false);
-
   // Find course details
   const course = coursesData.find((c) => c.slug === slug);
+
+  const handleEnrollClick = () => {
+    if (course) {
+      router.push(`/enroll?course=${encodeURIComponent(course.title)}`);
+    } else {
+      router.push("/enroll");
+    }
+  };
 
   if (!course) {
     return (
       <>
-        <Navbar onEnrollClick={openEnrollModal} />
+        <Navbar onEnrollClick={() => router.push("/enroll")} />
         <div className="container-custom py-32 text-center">
           <h1 className="font-display text-3xl font-extrabold text-kips-text-900">
             Course Not Found
@@ -59,7 +61,7 @@ export default function CourseDetailsPage() {
       <BackToTop />
       
       {/* Navigation */}
-      <Navbar onEnrollClick={openEnrollModal} />
+      <Navbar onEnrollClick={handleEnrollClick} />
 
       <main className="bg-kips-light-50 min-h-screen pb-20">
         
@@ -79,8 +81,18 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Course Header Banner */}
-        <section className="bg-kips-navy-900 py-16 text-white">
-          <div className="container-custom">
+        <section className="relative overflow-hidden py-24 text-white">
+          {/* Background image & dark gradient overlay */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={course.image}
+              alt={course.title}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-transparent" />
+          </div>
+
+          <div className="container-custom relative z-10">
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-kips-yellow-500">
                 {getIcon(course.iconName, "h-3.5 w-3.5 text-kips-yellow-500")}
@@ -89,10 +101,10 @@ export default function CourseDetailsPage() {
               <h1 className="font-display mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">
                 {course.title}
               </h1>
-              <div className="mt-2 font-body text-xl font-semibold text-white/80" dir="rtl">
+              <div className="mt-2 font-body text-xl font-semibold text-white/85" dir="rtl">
                 {course.urduTitle}
               </div>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70">
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80">
                 {course.detail}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-6 text-xs text-white/60">
@@ -229,7 +241,7 @@ export default function CourseDetailsPage() {
                   </div>
 
                   <button
-                    onClick={openEnrollModal}
+                    onClick={handleEnrollClick}
                     className="w-full text-center block rounded-lg bg-kips-yellow-500 py-3 text-sm font-bold text-kips-navy-900 shadow-sm transition-all hover:bg-kips-yellow-600 cursor-pointer"
                   >
                     Enroll in Course
@@ -254,12 +266,6 @@ export default function CourseDetailsPage() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Enrollment */}
-      <EnrollmentModal
-        isOpen={isEnrollModalOpen}
-        onClose={closeEnrollModal}
-      />
     </>
   );
 }

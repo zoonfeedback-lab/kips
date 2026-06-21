@@ -10,13 +10,13 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { href: "#home",         label: "Home",         sectionId: "home"         },
-  { href: "#about",        label: "About",        sectionId: "about"        },
-  { href: "#programs",     label: "Programs",     sectionId: "programs"     },
-  { href: "#why-kips",     label: "Why KIPS",     sectionId: "why-kips"     },
-  { href: "#reviews",      label: "Reviews",      sectionId: "reviews"      },
-  { href: "#branches",     label: "Branches",     sectionId: "branches"     },
-  { href: "#contact",      label: "Contact",      sectionId: "contact"      },
+  { href: "/#home",         label: "Home",         sectionId: "home"         },
+  { href: "/#about",        label: "About",        sectionId: "about"        },
+  { href: "/#programs",     label: "Programs",     sectionId: "programs"     },
+  { href: "/#why-kips",     label: "Why KIPS",     sectionId: "why-kips"     },
+  { href: "/#reviews",      label: "Reviews",      sectionId: "reviews"      },
+  { href: "/#branches",     label: "Branches",     sectionId: "branches"     },
+  { href: "/#contact",      label: "Contact",      sectionId: "contact"      },
 ];
 
 const regionLine =

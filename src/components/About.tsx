@@ -199,13 +199,23 @@ const tabs: TabData[] = [
     ),
     photos: [
       {
+        src: "/images/cert-dit-diploma-new.jpg",
+        alt: "KP TTB DIT Diploma (Eman Amir)",
+        caption: "Official KP Trade Testing Board One-year DIT Diploma awarded to Eman Amir (Grade A+)."
+      },
+      {
+        src: "/images/cert-dit-marks-new.jpg",
+        alt: "KP TTB Detailed Marks Certificate (Samiullah Khan)",
+        caption: "Official detailed marks transcript (DMC) from Khyber Pakhtunkhwa Trade Testing Board Peshawar for Samiullah Khan."
+      },
+      {
         src: "/images/cert-dit-diploma.jpg",
-        alt: "KP TTB DIT Diploma",
+        alt: "KP TTB DIT Diploma (Sample)",
         caption: "Official Government-recognized Diploma in Information Technology (DIT) by KP TTB."
       },
       {
         src: "/images/cert-dit-marks.jpg",
-        alt: "KP TTB Detailed Marks Certificate",
+        alt: "KP TTB Detailed Marks Certificate (Sample)",
         caption: "Sample DIT Transcript displaying subject scores (Introduction to Database, Graphics, MS Access)."
       }
     ]

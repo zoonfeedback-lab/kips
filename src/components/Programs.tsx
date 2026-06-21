@@ -8,6 +8,7 @@ import { coursesData, type Course } from "@/data/courses";
 
 type Category = {
   name: string;
+  displayName: string;
   iconName: string;
   color: string;
   programs: Course[];
@@ -21,19 +22,25 @@ function getIcon(name: string, className: string = "h-4 w-4") {
 }
 
 // Group data by category dynamically
-const categoryList: { [key: string]: { icon: string; color: string } } = {
-  "IT": { icon: "Monitor", color: "text-blue-600 bg-blue-50 border-blue-100" },
-  "Professional": { icon: "Briefcase", color: "text-orange-600 bg-orange-50 border-orange-100" },
-  "Academic": { icon: "GraduationCap", color: "text-indigo-600 bg-indigo-50 border-indigo-100" },
-  "Vocational": { icon: "Scissors", color: "text-pink-600 bg-pink-50 border-pink-100" },
-  "Psychology & Parenting": { icon: "Brain", color: "text-violet-600 bg-violet-50 border-violet-100" },
-  "Dr. Mudassar Seminars": { icon: "Clipboard", color: "text-teal-600 bg-teal-50 border-teal-100" }
+const categoryList: { [key: string]: { displayName: string; icon: string; color: string } } = {
+  "IT": { displayName: "Information Technology (IT)", icon: "Monitor", color: "text-blue-600 bg-blue-50 border-blue-100" },
+  "Professional": { displayName: "Professional Certifications", icon: "Briefcase", color: "text-orange-600 bg-orange-50 border-orange-100" },
+  "Academic": { displayName: "Academic Pathways", icon: "GraduationCap", color: "text-indigo-600 bg-indigo-50 border-indigo-100" },
+  "Vocational": { displayName: "Technical & Vocational Skills", icon: "Scissors", color: "text-pink-600 bg-pink-50 border-pink-100" },
+  "Psychology & Parenting": { displayName: "Educational Psychology & Counseling", icon: "Brain", color: "text-violet-600 bg-violet-50 border-violet-100" },
+  "Dr. Mudassar Seminars": { displayName: "Executive Seminars & Test Prep", icon: "Clipboard", color: "text-teal-600 bg-teal-50 border-teal-100" }
 };
+
+export const categoryDisplayNames: { [key: string]: string } = Object.keys(categoryList).reduce((acc, key) => {
+  acc[key] = categoryList[key].displayName;
+  return acc;
+}, {} as Record<string, string>);
 
 const categories: Category[] = Object.keys(categoryList).map((catName) => {
   const meta = categoryList[catName];
   return {
     name: catName,
+    displayName: meta.displayName,
     iconName: meta.icon,
     color: meta.color,
     programs: coursesData.filter((c) => c.category === catName)
@@ -79,7 +86,7 @@ function ProgramCard({
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center justify-between gap-2">
           <span className="text-[0.65rem] font-bold uppercase tracking-wider text-kips-navy-900">
-            {program.category} Program
+            {categoryDisplayNames[program.category] || program.category}
           </span>
           <span className="text-[0.65rem] font-medium text-kips-text-400">
             {program.duration}
@@ -122,7 +129,7 @@ function CategoryGroup({ category }: { category: Category }) {
           {getIcon(category.iconName, "h-4 w-4")}
         </div>
         <h3 className="font-display text-lg font-bold tracking-tight text-kips-text-900">
-          {category.name} Programs
+          {category.displayName}
         </h3>
         <div className="h-px flex-grow bg-gray-100" />
         <span className="text-xs font-semibold text-kips-text-400">
@@ -148,12 +155,22 @@ function CategoryGroup({ category }: { category: Category }) {
 }
 
 /* ── Main Programs Section ── */
-export default function Programs() {
+export default function Programs({ limitCourses = false }: { limitCourses?: boolean }) {
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
   const headerRef = useScrollAnimation<HTMLDivElement>();
   const tabsRef   = useScrollAnimation<HTMLDivElement>({ rootMargin: "0px 0px -40px 0px" });
   const notesRef  = useStaggerAnimation<HTMLDivElement>({ staggerMs: 100 });
+
+  const featuredSlugs = [
+    "dit",
+    "montessori-diploma",
+    "safety-officer",
+    "b-ed",
+    "computer-ai-tools",
+    "graphic-designing"
+  ];
+  const featuredPrograms = coursesData.filter((c) => featuredSlugs.includes(c.slug));
 
   const filteredCategories =
     activeFilter === "All"
@@ -169,76 +186,109 @@ export default function Programs() {
           <div className="max-w-2xl">
             <span className="section-label">OUR CURRICULUM</span>
             <h2 className="font-display text-3xl font-extrabold tracking-tight text-kips-text-900 lg:text-4xl">
-              Explore Our Programs
+              {limitCourses ? "Popular Study Programs" : "Explore Our Programs"}
             </h2>
             <p className="mt-3 text-sm text-kips-text-400">
-              Browse professional certifications, diplomas, and academic prep pathways designed for career success.
+              {limitCourses 
+                ? "Browse our most popular technical diplomas, teacher training courses, and professional safety pathways."
+                : "Browse professional certifications, diplomas, and academic prep pathways designed for career success."}
             </p>
           </div>
         </div>
 
-        {/* Filter Tabs */}
-        <div ref={tabsRef} className="mb-10">
-          <div className="flex flex-wrap gap-1 pb-1">
-            {["All", ...categories.map((c) => c.name)].map((name) => (
-              <button
-                key={name}
-                onClick={() => setActiveFilter(name)}
-                className={`filter-tab ${
-                  activeFilter === name ? "filter-tab-active" : "filter-tab-inactive"
-                }`}
-              >
-                {name === "All" ? "All Programs" : name}
-              </button>
-            ))}
-          </div>
-          <div className="mt-3 h-px bg-gray-100" />
-        </div>
-
-        {/* Category groups */}
-        <div className="flex flex-col gap-14">
-          {filteredCategories.map((category) => (
-            <CategoryGroup key={category.name} category={category} />
-          ))}
-        </div>
-
-        {/* Notes */}
-        <div ref={notesRef} className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-2">
-          {notes.map((note) => (
-            <div
-              key={note.label}
-              className={`rounded-xl border p-6 transition-all duration-200 hover:shadow-xs ${
-                note.tone === "accent"
-                  ? "border-kips-navy-900/10 bg-kips-navy-900/4"
-                  : "border-kips-yellow-500/20 bg-kips-yellow-500/5"
-              }`}
-            >
-              <span
-                className={`mb-3 inline-block rounded-md px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-wider ${
-                  note.tone === "accent"
-                    ? "bg-kips-navy-900 text-white"
-                    : "bg-kips-yellow-500 text-kips-navy-900"
-                }`}
-              >
-                {note.label}
-              </span>
-              <p
-                className={`text-sm font-medium leading-relaxed ${
-                  note.label === "اردو نوٹ" || note.label === "AIOU Special Notice"
-                    ? "font-body text-kips-text-700"
-                    : "text-kips-text-900"
-                }`}
-                dir={
-                  note.label === "اردو نوٹ" || note.label === "AIOU Special Notice"
-                    ? "rtl"
-                    : "ltr"
-                }
-              >
-                {note.text}
-              </p>
+        {limitCourses ? (
+          /* Simplified grid for Home Page */
+          <>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredPrograms.map((program) => (
+                <ProgramCard
+                  key={program.title}
+                  program={program}
+                  categoryColor=""
+                />
+              ))}
             </div>
-          ))}
-        </div>
+            
+            {/* View All CTA */}
+            <div className="mt-12 text-center">
+              <Link
+                href="/courses"
+                className="inline-flex items-center gap-2 rounded-xl bg-kips-navy-900 px-8 py-3.5 text-sm font-bold text-white shadow-md hover:bg-kips-navy-800 transition-all duration-200 hover:-translate-y-px hover:shadow-lg cursor-pointer"
+              >
+                View All 15+ Programs <span className="text-xs">→</span>
+              </Link>
+            </div>
+          </>
+        ) : (
+          /* Full directory for /courses page */
+          <>
+            {/* Filter Tabs */}
+            <div ref={tabsRef} className="mb-10">
+              <div className="flex flex-wrap gap-1 pb-1">
+                {["All", ...categories.map((c) => c.name)].map((name) => {
+                  const displayName = name === "All" ? "All Programs" : (categoryList[name]?.displayName || name);
+                  return (
+                    <button
+                      key={name}
+                      onClick={() => setActiveFilter(name)}
+                      className={`filter-tab ${
+                        activeFilter === name ? "filter-tab-active" : "filter-tab-inactive"
+                      }`}
+                    >
+                      {displayName}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="mt-3 h-px bg-gray-100" />
+            </div>
+
+            {/* Category groups */}
+            <div className="flex flex-col gap-14">
+              {filteredCategories.map((category) => (
+                <CategoryGroup key={category.name} category={category} />
+              ))}
+            </div>
+
+            {/* Notes */}
+            <div ref={notesRef} className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-2">
+              {notes.map((note) => (
+                <div
+                  key={note.label}
+                  className={`rounded-xl border p-6 transition-all duration-200 hover:shadow-xs ${
+                    note.tone === "accent"
+                      ? "border-kips-navy-900/10 bg-kips-navy-900/4"
+                      : "border-kips-yellow-500/20 bg-kips-yellow-500/5"
+                  }`}
+                >
+                  <span
+                    className={`mb-3 inline-block rounded-md px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-wider ${
+                      note.tone === "accent"
+                        ? "bg-kips-navy-900 text-white"
+                        : "bg-kips-yellow-500 text-kips-navy-900"
+                    }`}
+                  >
+                    {note.label}
+                  </span>
+                  <p
+                    className={`text-sm font-medium leading-relaxed ${
+                      note.label === "اردو نوٹ" || note.label === "AIOU Special Notice"
+                        ? "font-body text-kips-text-700"
+                        : "text-kips-text-900"
+                    }`}
+                    dir={
+                      note.label === "اردو نوٹ" || note.label === "AIOU Special Notice"
+                        ? "rtl"
+                        : "ltr"
+                    }
+                  >
+                    {note.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

@@ -66,8 +66,9 @@ export default function Hero({ onEnrollClick }: HeroProps) {
               {/* Single clean badge */}
               <div className="absolute -bottom-5 -left-5 rounded-xl bg-white px-5 py-4 shadow-xl">
                 <p className="text-[0.6rem] font-bold uppercase tracking-widest text-kips-text-400">Supervised by</p>
-                <p className="mt-0.5 text-sm font-bold text-kips-text-900">Prof. Sohail Ahmad Khan</p>
-                <p className="text-xs text-kips-text-400">Dr. Mudassar · Education Psychologist</p>
+                <p className="mt-0.5 text-sm font-bold text-kips-text-900">Sohail Ahmed Khan</p>
+                <p className="text-[0.68rem] font-bold text-kips-navy-900">CEO · MS (CS), M.E</p>
+                <p className="text-[0.65rem] text-kips-text-400 mt-1">Dr. Mudassar · Advisor / Psychologist</p>
               </div>
             </div>
           </div>

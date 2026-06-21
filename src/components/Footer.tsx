@@ -74,12 +74,12 @@ export default function Footer() {
               Quick Links
             </h4>
             <div className="flex flex-col gap-2.5 text-xs">
-              <Link href="/#home" className="hover:text-white transition-colors">Home Page</Link>
-              <Link href="/#about" className="hover:text-white transition-colors">About History</Link>
-              <Link href="/#programs" className="hover:text-white transition-colors">Our Programs</Link>
-              <Link href="/#why-kips" className="hover:text-white transition-colors">Why Choose Us</Link>
+              <Link href="/" className="hover:text-white transition-colors">Home Page</Link>
+              <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
+              <Link href="/courses" className="hover:text-white transition-colors">Our Programs</Link>
+              <Link href="/about#why-kips" className="hover:text-white transition-colors">Why Choose Us</Link>
               <Link href="/#reviews" className="hover:text-white transition-colors">Alumni Reviews</Link>
-              <Link href="/#branches" className="hover:text-white transition-colors">Campus Map</Link>
+              <Link href="/campuses" className="hover:text-white transition-colors">Campus Map</Link>
             </div>
           </div>
 
@@ -142,8 +142,8 @@ export default function Footer() {
             © 2026 Keyan Institute of Professional Studies. Under the aegis of Mashal Technical Education System.
           </p>
           <div className="flex gap-6">
-            <a href="/#contact" className="hover:text-white transition-colors text-white/60">Support Helpline</a>
-            <a href="/#programs" className="hover:text-white transition-colors text-white/60">Certificates & Diplomas</a>
+            <Link href="/contact" className="hover:text-white transition-colors text-white/60">Support Helpline</Link>
+            <Link href="/courses" className="hover:text-white transition-colors text-white/60">Certificates & Diplomas</Link>
           </div>
         </div>
 

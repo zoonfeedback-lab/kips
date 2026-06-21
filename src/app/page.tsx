@@ -32,8 +32,8 @@ export default function Home() {
       <main>
         <Hero onEnrollClick={handleEnrollClick} />
         <StatsBar />
-        <About />
-        <Programs />
+        <About limitAbout={true} />
+        <Programs limitCourses={true} />
         <WhyKIPS />
         <Affiliations />
         <Reviews />

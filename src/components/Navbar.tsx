@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 
 type NavItem = {
@@ -10,13 +11,11 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { href: "/#home",         label: "Home",         sectionId: "home"         },
-  { href: "/#about",        label: "About",        sectionId: "about"        },
-  { href: "/#programs",     label: "Programs",     sectionId: "programs"     },
-  { href: "/#why-kips",     label: "Why KIPS",     sectionId: "why-kips"     },
-  { href: "/#reviews",      label: "Reviews",      sectionId: "reviews"      },
-  { href: "/#branches",     label: "Branches",     sectionId: "branches"     },
-  { href: "/#contact",      label: "Contact",      sectionId: "contact"      },
+  { href: "/",             label: "Home",         sectionId: "home"         },
+  { href: "/about",        label: "About Us",     sectionId: "about"        },
+  { href: "/courses",      label: "Programs",     sectionId: "programs"     },
+  { href: "/campuses",     label: "Branches",     sectionId: "branches"     },
+  { href: "/contact",      label: "Contact",      sectionId: "contact"      },
 ];
 
 const regionLine =
@@ -30,6 +29,7 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   // Shadow on scroll
   useEffect(() => {
@@ -38,30 +38,20 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scroll-spy — highlight the section currently in view
+  // Sync active section based on current pathname
   useEffect(() => {
-    const sectionIds = navItems.map((n) => n.sectionId);
-    const observers: IntersectionObserver[] = [];
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveHash(id);
-        },
-        {
-          rootMargin: "-30% 0px -60% 0px",
-          threshold: 0,
-        }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
-  }, []);
+    if (pathname === "/") {
+      setActiveHash("home");
+    } else if (pathname.startsWith("/about")) {
+      setActiveHash("about");
+    } else if (pathname.startsWith("/courses")) {
+      setActiveHash("programs");
+    } else if (pathname.startsWith("/campuses")) {
+      setActiveHash("branches");
+    } else if (pathname.startsWith("/contact")) {
+      setActiveHash("contact");
+    }
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50">
@@ -89,7 +79,7 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
         >
           {/* Logo */}
           <Link
-            href="#home"
+            href="/"
             className="inline-flex items-center gap-3 transition-opacity hover:opacity-80"
             onClick={() => { setIsOpen(false); setActiveHash("home"); }}
           >

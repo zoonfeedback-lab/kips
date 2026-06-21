@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import About from "@/components/About";
 import Reviews from "@/components/Reviews";
 import Affiliations from "@/components/Affiliations";
@@ -12,15 +12,15 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Programs from "@/components/Programs";
 import StatsBar from "@/components/StatsBar";
-import EnrollmentModal from "@/components/EnrollmentModal";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
-  const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
+  const router = useRouter();
 
-  const openEnrollModal = () => setIsEnrollModalOpen(true);
-  const closeEnrollModal = () => setIsEnrollModalOpen(false);
+  const handleEnrollClick = () => {
+    router.push("/enroll");
+  };
 
   return (
     <>
@@ -28,9 +28,9 @@ export default function Home() {
       <ScrollProgress />
       <BackToTop />
 
-      <Navbar onEnrollClick={openEnrollModal} />
+      <Navbar onEnrollClick={handleEnrollClick} />
       <main>
-        <Hero onEnrollClick={openEnrollModal} />
+        <Hero onEnrollClick={handleEnrollClick} />
         <StatsBar />
         <About />
         <Programs />
@@ -38,14 +38,9 @@ export default function Home() {
         <Affiliations />
         <Reviews />
         <BranchNetwork />
-        <ContactCTA onEnrollClick={openEnrollModal} />
+        <ContactCTA onEnrollClick={handleEnrollClick} />
       </main>
       <Footer />
-
-      <EnrollmentModal
-        isOpen={isEnrollModalOpen}
-        onClose={closeEnrollModal}
-      />
     </>
   );
 }

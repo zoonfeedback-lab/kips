@@ -542,5 +542,155 @@ export const coursesData: Course[] = [
       "Vocabulary building, idioms, and usage in contextual frames"
     ],
     prerequisites: "Basic literacy in English."
+  },
+  {
+    slug: "safety-tools",
+    title: "Safety Tools",
+    urduTitle: "سیفٹی ٹولز",
+    category: "Professional",
+    detail: "Comprehensive training in modern safety equipment, industrial tools, workplace hazard prevention, and emergency gear operation.",
+    image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
+    iconName: "Shield",
+    duration: "2 Months",
+    certificate: "Board of Trade & Technical Education Certified",
+    campuses: ["Abbottabad", "Haripur", "Mansehra", "Shinkiari", "Baffa", "Mirpur (AJ&K)", "Garhi Habibullah"],
+    learningOutcomes: [
+      "Operate industrial safety tools and personal protective equipment (PPE).",
+      "Identify workplace hazards and implement prevention protocols.",
+      "Conduct basic safety drills and environmental hazard audits.",
+      "Master emergency rescue equipment handling."
+    ],
+    syllabus: [
+      "Introduction to Industrial Safety Tools and Equipment",
+      "Hazard Communication, Fire Safety & Extinguisher Operation",
+      "Personal Protective Equipment (PPE) Selection and Usage Standards",
+      "Emergency Evacuation, Safe Rigging and Tool Inspection Protocols"
+    ],
+    prerequisites: "Matriculation or equivalent."
+  },
+  {
+    slug: "at-skills",
+    title: "AT-Skills",
+    urduTitle: "اے ٹی اسکلز",
+    category: "IT",
+    detail: "Advanced technology skills covering computer applications, digital tools, AI assistance, and office automation systems.",
+    image: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800",
+    iconName: "Cpu",
+    duration: "3 Months",
+    certificate: "MTES Skill Certification",
+    campuses: ["Abbottabad", "Haripur", "Mansehra", "Shinkiari", "Baffa", "Mirpur (AJ&K)", "Garhi Habibullah"],
+    learningOutcomes: [
+      "Apply digital productivity tools for daily office and design tasks.",
+      "Leverage artificial intelligence (AI) assistants to optimize workflows.",
+      "Manage files, cloud storage, and collaborative workplace software.",
+      "Develop problem-solving skills using modern technical software."
+    ],
+    syllabus: [
+      "Digital Productivity Foundations: OS & Cloud Tools",
+      "AI Assistants (ChatGPT, Gemini) for Workflow Automation",
+      "Data Presentation, Spreadsheets, and Reporting Tools",
+      "Collaborative Team Platforms and Digital Communications"
+    ],
+    prerequisites: "Basic computer familiarity."
+  },
+  {
+    slug: "first-aid",
+    title: "First Aid",
+    urduTitle: "ابتدائی طبی امداد",
+    category: "Professional",
+    detail: "Essential training in medical emergency response, CPR, trauma handling, wound dressing, and life support techniques.",
+    image: "https://images.pexels.com/photos/6520188/pexels-photo-6520188.jpeg?auto=compress&cs=tinysrgb&w=800",
+    iconName: "Heart",
+    duration: "1 Month",
+    certificate: "MTES & Red Crescent Aligned Certificate",
+    campuses: ["Abbottabad", "Haripur", "Mansehra", "Shinkiari", "Baffa", "Mirpur (AJ&K)", "Garhi Habibullah"],
+    learningOutcomes: [
+      "Deliver immediate first aid care in critical trauma and medical emergencies.",
+      "Perform Cardiopulmonary Resuscitation (CPR) and AED handling correctly.",
+      "Apply proper splinting, wound cleaning, and bleeding control.",
+      "Manage shock, choking, and thermal injury patients."
+    ],
+    syllabus: [
+      "Introduction to Emergency First Aid and Responder Rules",
+      "Cardiopulmonary Resuscitation (CPR) & Airway Obstruction (Choking)",
+      "Trauma Management: Wounds, Fractures, Splinting and Bleeding Control",
+      "Medical Emergencies: Shock, Poisoning, Burns, and Patient Transportation"
+    ],
+    prerequisites: "Open to all students."
+  },
+  {
+    slug: "writing-skills",
+    title: "Writing Skills",
+    urduTitle: "تحریری مہارت",
+    category: "Professional",
+    detail: "Master the art of professional writing, academic drafting, content creation, grammar accuracy, and calligraphy.",
+    image: "https://images.pexels.com/photos/210661/pexels-photo-210661.jpeg?auto=compress&cs=tinysrgb&w=800",
+    iconName: "Edit3",
+    duration: "2 Months",
+    certificate: "KIPS Writing Proficiency Certificate",
+    campuses: ["Abbottabad", "Haripur", "Mansehra", "Shinkiari", "Baffa", "Mirpur (AJ&K)", "Garhi Habibullah"],
+    learningOutcomes: [
+      "Write grammatically correct and impactful business and academic documents.",
+      "Develop creative writing voice and content drafting structures.",
+      "Edit, proofread, and format formal emails and reports.",
+      "Explore standard handwriting and calligraphy rules."
+    ],
+    syllabus: [
+      "Grammar Foundations and Sentence Structural Patterns",
+      "Professional Correspondence: Emails, Letters, and Reports",
+      "Creative Writing and Content Generation Techniques",
+      "Editing, Proofreading, and Calligraphic Styling Principles"
+    ],
+    prerequisites: "Basic literacy in Urdu and English."
+  },
+  {
+    slug: "driving-skills",
+    title: "Driving Skills",
+    urduTitle: "ڈرائیونگ اسکلز",
+    category: "Vocational",
+    detail: "Theoretical and practical training in light vehicle driving, traffic laws, road safety signs, and basic vehicle maintenance.",
+    image: "https://images.pexels.com/photos/19593165/pexels-photo-19593165.jpeg?auto=compress&cs=tinysrgb&w=800",
+    iconName: "Compass",
+    duration: "1 Month",
+    certificate: "MTES Driving Certification",
+    campuses: ["Abbottabad", "Haripur", "Mansehra", "Shinkiari", "Baffa", "Mirpur (AJ&K)", "Garhi Habibullah"],
+    learningOutcomes: [
+      "Drive light vehicles safely under varying weather and road conditions.",
+      "Recognize and comply with highway codes and road safety signs.",
+      "Perform essential pre-trip inspections and basic engine maintenance.",
+      "Execute safe parking, reversing, and defensive driving strategies."
+    ],
+    syllabus: [
+      "Vehicle Controls, Steering Mechanics, and Pre-Drive Checklists",
+      "Highway Code, Traffic Laws, and Road Sign Interpretations",
+      "Defensive Driving Strategies, Blindspots, and Parking Drills",
+      "Basic Engine Mechanics, Fluid Checks, and Tire Changing Procedures"
+    ],
+    prerequisites: "Minimum age 18 years."
+  },
+  {
+    slug: "tafseer-quran",
+    title: "Tafseer-e-Quran",
+    urduTitle: "تفسیر قرآن",
+    category: "Academic",
+    detail: "Detailed translation, historical context, and explanation of Quranic verses, teaching moral ethics, guidance, and spiritual values.",
+    image: "https://images.pexels.com/photos/8164742/pexels-photo-8164742.jpeg?auto=compress&cs=tinysrgb&w=800",
+    iconName: "BookOpen",
+    duration: "6 Months",
+    certificate: "KIPS Islamic Studies Certificate",
+    campuses: ["Abbottabad", "Haripur", "Mansehra", "Shinkiari", "Baffa", "Mirpur (AJ&K)", "Garhi Habibullah"],
+    learningOutcomes: [
+      "Understand the translation and background (Asbab al-Nuzul) of key Surahs.",
+      "Learn moral principles, family ethics, and social duties from Quranic verses.",
+      "Pronounce Quranic text with basic Tajweed rules.",
+      "Discuss modern challenges in the light of Islamic moral philosophy."
+    ],
+    syllabus: [
+      "Introduction to Quranic Sciences and History of Tafseer",
+      "Detailed Translation and Tafseer of Selected Surahs (Para 30)",
+      "Islamic Moral Philosophy, Ethics, and Social Conduct Rules",
+      "Tajweed Foundations and Basic Arabic Vocabulary"
+    ],
+    prerequisites: "Basic reading ability of Arabic."
   }
 ];

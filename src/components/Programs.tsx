@@ -163,14 +163,17 @@ export default function Programs({ limitCourses = false }: { limitCourses?: bool
   const notesRef  = useStaggerAnimation<HTMLDivElement>({ staggerMs: 100 });
 
   const featuredSlugs = [
-    "dit",
-    "montessori-diploma",
-    "safety-officer",
-    "b-ed",
-    "computer-ai-tools",
-    "graphic-designing"
+    "safety-tools",
+    "at-skills",
+    "first-aid",
+    "english-language",
+    "writing-skills",
+    "driving-skills",
+    "tafseer-quran"
   ];
-  const featuredPrograms = coursesData.filter((c) => featuredSlugs.includes(c.slug));
+  const featuredPrograms = featuredSlugs
+    .map((slug) => coursesData.find((c) => c.slug === slug))
+    .filter((c): c is Course => !!c);
 
   const filteredCategories =
     activeFilter === "All"

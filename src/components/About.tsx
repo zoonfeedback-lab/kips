@@ -29,7 +29,10 @@ const tabs: TabData[] = [
     description: (
       <>
         <p className="text-sm text-kips-text-700 leading-relaxed">
-          Keyan Institute of Professional Studies (KIPS) is led by <strong>Sohail Ahmed Khan, MS (CS), M.E</strong>. Over the last two decades, he has established curriculum standards, fostered international affiliations, and set up 7 active campuses across Northern Pakistan to bridge traditional schooling with professional IT, management, and technical skills.
+          Keyan Institute of Professional Studies (KIPS) is founded and led by <strong>Sohail Ahmed Khan, MS (CS), M.E</strong>. Under his visionary leadership, KIPS has grown into one of the region’s premier technical networks, offering state-of-the-art curricula, board-registered certifications, and job-oriented vocational training.
+        </p>
+        <p className="mt-3 text-sm text-kips-text-700 leading-relaxed">
+          With extensive qualifications in Computer Science and Engineering, he is dedicated to raising training benchmarks and establishing accessible campuses that empower youth with practical skillsets for local and overseas industries.
         </p>
         
         {/* Quote Card */}
@@ -59,14 +62,14 @@ const tabs: TabData[] = [
     ),
     photos: [
       {
+        src: "/images/founder-portrait.jpg",
+        alt: "Sohail Ahmed Khan",
+        caption: "Sohail Ahmed Khan, Founder & CEO of Keyan Institute of Professional Studies."
+      },
+      {
         src: "/images/founder-office.jpg",
         alt: "CEO Office Desk",
         caption: "CEO Sohail Ahmed Khan at the KIPS Abbottabad Head Office desk."
-      },
-      {
-        src: "/images/founder-portrait.jpg",
-        alt: "CEO Stage Address",
-        caption: "CEO Sohail Ahmed Khan addressing faculty and learners at the academic summit."
       },
       {
         src: "/images/founder-certificate.jpg",
@@ -253,7 +256,7 @@ export default function About({ limitAbout = false }: { limitAbout?: boolean }) 
   };
 
   return (
-    <section id="about" className="scroll-mt-20 bg-linear-to-b from-gray-50 via-white to-gray-50/50 py-24 border-t border-gray-150 font-body relative overflow-hidden">
+    <section id="about" className={`scroll-mt-20 bg-linear-to-b from-gray-50 via-white to-gray-50/50 pt-24 ${limitAbout ? "pb-12" : "pb-24"} border-t border-gray-150 font-body relative overflow-hidden`}>
       
       {/* Background Graphic Ornaments */}
       <div className="absolute top-20 right-0 w-80 h-80 bg-kips-navy-900/2 rounded-full blur-3xl pointer-events-none" />
@@ -263,16 +266,22 @@ export default function About({ limitAbout = false }: { limitAbout?: boolean }) 
         
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
-          <span className="section-label">
-            {limitAbout ? "FOUNDER & CEO PROFILE" : "ABOUT KEYAN INSTITUTE"}
-          </span>
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-kips-text-900 lg:text-4xl">
-            {limitAbout ? "Leadership & Academic Vision" : "Accredited Technical Education Portal"}
-          </h2>
+          {limitAbout ? (
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-kips-text-900 lg:text-4xl uppercase">
+              Founder
+            </h2>
+          ) : (
+            <>
+              <span className="section-label">ABOUT KEYAN INSTITUTE</span>
+              <h2 className="font-display text-3xl font-extrabold tracking-tight text-kips-text-900 lg:text-4xl">
+                Accredited Technical Education Portal
+              </h2>
+            </>
+          )}
           <div className="h-1.5 w-16 bg-kips-yellow-500 rounded-full mt-4 mb-3" />
           <p className="text-sm text-kips-text-500 leading-relaxed">
             {limitAbout 
-              ? "Keyan Institute is driven by a commitment to practical education, national accreditation, and regional development."
+              ? "Keyan Institute of Professional Studies is driven by a commitment to practical education, national accreditation, and regional development under the leadership of Sohail Ahmed Khan."
               : "Select the sections below to review our leadership profiles, watch our campus video walkthrough, or inspect our academic accreditations."}
           </p>
         </div>
@@ -308,34 +317,47 @@ export default function About({ limitAbout = false }: { limitAbout?: boolean }) 
         )}
         
         {/* Main Content Grid */}
-        <div className="grid items-stretch gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
+        <div className={`grid gap-12 lg:gap-16 ${limitAbout ? "lg:grid-cols-2 items-center" : "lg:grid-cols-[1.12fr_0.88fr] items-stretch"}`}>
           
           {/* Left Column: Description info */}
           <div ref={leftRef} className="flex flex-col justify-between">
             <div>
-              <span className="text-[0.62rem] font-bold text-kips-yellow-600 uppercase tracking-widest block mb-1.5">
-                {activeTab.label}
-              </span>
-              <h3 className="font-display text-2xl font-extrabold tracking-tight text-kips-text-900 mb-6">
-                {activeTab.title}
-              </h3>
+              {!limitAbout && (
+                <>
+                  <span className="text-[0.62rem] font-bold text-kips-yellow-600 uppercase tracking-widest block mb-1.5">
+                    {activeTab.label}
+                  </span>
+                  <h3 className="font-display text-2xl font-extrabold tracking-tight text-kips-text-900 mb-6">
+                    {activeTab.title}
+                  </h3>
+                </>
+              )}
               
               <div className="flex flex-col gap-4 text-sm text-kips-text-700 leading-relaxed">
-                {activeTab.description}
+                {limitAbout ? (
+                  <>
+                    <p className="text-sm text-kips-text-700 leading-relaxed">
+                      Keyan Institute of Professional Studies (KIPS) is led by <strong>Sohail Ahmed Khan, MS (CS), M.E</strong>. Over the last two decades, he has established curriculum standards, fostered international affiliations, and set up 7 active campuses across Northern Pakistan to bridge traditional schooling with professional IT, management, and technical skills.
+                    </p>
+                    
+                    {/* Vision Quote Card */}
+                    <div className="mt-2 border-l-4 border-kips-yellow-500 bg-kips-light-50 rounded-r-xl p-5 shadow-xs">
+                      <p className="font-body text-[0.82rem] font-semibold italic text-kips-text-700 leading-relaxed">
+                        "Technical competence is the bridge between education and employment. Our mission is to make every youth self-sufficient."
+                      </p>
+                      <span className="block mt-2 text-[0.65rem] font-bold uppercase tracking-wider text-kips-navy-900 text-right">
+                        — Sohail Ahmed Khan, CEO
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  activeTab.description
+                )}
               </div>
             </div>
 
             {/* Quick credentials footer */}
-            {limitAbout ? (
-              <div className="mt-8 border-t border-gray-150 pt-6">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 rounded-xl bg-kips-navy-900 px-6 py-3 text-xs font-bold text-white shadow-xs hover:bg-kips-navy-800 transition-all cursor-pointer hover:shadow-md"
-                >
-                  Explore Board Approvals & Campus Video <span className="text-xs">→</span>
-                </Link>
-              </div>
-            ) : (
+            {!limitAbout && (
               <div className="mt-10 border-t border-gray-150 pt-6 flex flex-wrap gap-x-8 gap-y-4">
                 <div>
                   <span className="text-[0.62rem] text-kips-text-450 uppercase tracking-widest font-bold block mb-1">Board Accreditation</span>
@@ -350,7 +372,7 @@ export default function About({ limitAbout = false }: { limitAbout?: boolean }) 
           </div>
 
           {/* Right Column: Media Display Box with Enhanced Document filters and lightbox */}
-          <div ref={rightRef} className="flex flex-col justify-between">
+          <div ref={rightRef} className={limitAbout ? "" : "flex flex-col justify-between"}>
             <div>
               {activeTab.id === "video" ? (
                 /* Video Player Frame with styled top bar resembling a media player application window */
@@ -384,13 +406,13 @@ export default function About({ limitAbout = false }: { limitAbout?: boolean }) 
                   <div className="p-2 bg-white rounded-2xl border border-gray-200 shadow-md">
                     <div 
                       onClick={() => setLightboxImage(activePhoto)}
-                      className="aspect-[3/4] w-full overflow-hidden rounded-xl border border-gray-200 relative bg-gray-50 cursor-zoom-in group"
+                      className={`${limitAbout ? "aspect-[4/3.2]" : "aspect-[3/4]"} w-full overflow-hidden rounded-xl border border-gray-200 relative bg-gray-50 cursor-zoom-in group`}
                     >
                       <img
                         src={activePhoto.src}
                         alt={activePhoto.alt}
                         /* Apply CSS enhancement filters: brightness, contrast, saturate adjustments to make scan pictures look clear and clean */
-                        className="h-full w-full object-cover transition-all duration-500 filter contrast-[1.05] brightness-[1.02] saturate-[0.95] group-hover:scale-103"
+                        className="h-full w-full object-cover object-top transition-all duration-500 filter contrast-[1.05] brightness-[1.02] saturate-[0.95] group-hover:scale-103"
                       />
                       
                       {/* Image Overlay Tags */}
@@ -424,6 +446,8 @@ export default function About({ limitAbout = false }: { limitAbout?: boolean }) 
                 )
               )}
             </div>
+
+
 
             {/* Thumbnails Gallery Strip (hidden when limitAbout is active) */}
             {!limitAbout && activeTab.photos && activeTab.photos.length > 0 && (
@@ -461,6 +485,17 @@ export default function About({ limitAbout = false }: { limitAbout?: boolean }) 
 
         </div>
 
+        {/* Explore More Button for Homepage (rendered below the main content grid in the center of the whole row) */}
+        {limitAbout && (
+          <div className="mt-6 flex justify-center">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 rounded-xl bg-kips-navy-900 px-8 py-4 text-xs font-bold text-white shadow-xs hover:bg-kips-navy-800 transition-all cursor-pointer hover:shadow-md"
+            >
+              Explore More About Us <span className="text-xs">→</span>
+                </Link>
+              </div>
+            )}
       </div>
 
       {/* LIGHTBOX MODAL */}

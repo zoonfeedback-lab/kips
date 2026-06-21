@@ -1,215 +1,44 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
+import Link from "next/link";
 import { useScrollAnimation, useStaggerAnimation } from "@/hooks/useScrollAnimation";
 import { Icons } from "@/components/Icons";
-
-type Program = {
-  title: string;
-  urduTitle: string;
-  detail: string;
-  image: string;
-  icon: ReactNode;
-};
+import { coursesData, type Course } from "@/data/courses";
 
 type Category = {
   name: string;
-  icon: ReactNode;
+  iconName: string;
   color: string;
-  programs: Program[];
+  programs: Course[];
 };
 
-const categories: Category[] = [
-  {
-    name: "IT",
-    icon: <Icons.Monitor className="h-4 w-4" />,
-    color: "text-blue-600 bg-blue-50 border-blue-100",
-    programs: [
-      {
-        title: "Computer AI Tools",
-        urduTitle: "کمپیوٹر AI ٹولز",
-        detail: "Hands-on AI productivity and workplace tools",
-        image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Cpu className="h-4 w-4" />,
-      },
-      {
-        title: "CIT",
-        urduTitle: "سی آئی ٹی",
-        detail: "Certificate in Information Technology",
-        image: "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Code className="h-4 w-4" />,
-      },
-      {
-        title: "DIT",
-        urduTitle: "ڈی آئی ٹی",
-        detail: "Diploma in Information Technology",
-        image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Monitor className="h-4 w-4" />,
-      },
-      {
-        title: "Graphic Designing",
-        urduTitle: "گرافک ڈیزائننگ",
-        detail: "Creative design tools and digital media basics",
-        image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.PenTool className="h-4 w-4" />,
-      },
-    ],
-  },
-  {
-    name: "Professional",
-    icon: <Icons.Briefcase className="h-4 w-4" />,
-    color: "text-orange-600 bg-orange-50 border-orange-100",
-    programs: [
-      {
-        title: "Safety Officer",
-        urduTitle: "سیفٹی آفیسر",
-        detail: "OSHA, IOSH, and NEBOSH preparation pathway",
-        image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.ShieldCheck className="h-4 w-4" />,
-      },
-      {
-        title: "Montessori Diploma",
-        urduTitle: "مونٹیسوری ڈپلومہ",
-        detail: "Professional teacher preparation for early years",
-        image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Star className="h-4 w-4" />,
-      },
-      {
-        title: "English Language",
-        urduTitle: "انگلش لینگویج",
-        detail: "Spoken, written, and confidence-building practice",
-        image: "https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.MessageCircle className="h-4 w-4" />,
-      },
-    ],
-  },
-  {
-    name: "Academic",
-    icon: <Icons.GraduationCap className="h-4 w-4" />,
-    color: "text-indigo-600 bg-indigo-50 border-indigo-100",
-    programs: [
-      {
-        title: "B.Ed (1.5 / 2.5 Years)",
-        urduTitle: "بی ایڈ",
-        detail: "Teacher education pathway for aspiring educators",
-        image: "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.UserCheck className="h-4 w-4" />,
-      },
-      {
-        title: "ADA",
-        urduTitle: "اے ڈی اے",
-        detail: "Associate Degree in Arts (old BA pathway)",
-        image: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.BookOpen className="h-4 w-4" />,
-      },
-      {
-        title: "ADS",
-        urduTitle: "اے ڈی ایس",
-        detail: "Associate Degree in Science (old BSc pathway)",
-        image: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Flask className="h-4 w-4" />,
-      },
-      {
-        title: "FA / FSc",
-        urduTitle: "ایف اے / ایف ایس سی",
-        detail: "Intermediate studies with guided academic support",
-        image: "https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Book className="h-4 w-4" />,
-      },
-    ],
-  },
-  {
-    name: "Vocational",
-    icon: <Icons.Scissors className="h-4 w-4" />,
-    color: "text-pink-600 bg-pink-50 border-pink-100",
-    programs: [
-      {
-        title: "Dress Designing",
-        urduTitle: "ڈریس ڈیزائننگ",
-        detail: "Fashion, cutting, stitching, and tailoring skills",
-        image: "https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Scissors className="h-4 w-4" />,
-      },
-      {
-        title: "Beautician",
-        urduTitle: "بیوٹیشن",
-        detail: "Salon, skincare, and beauty services training",
-        image: "https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Sparkles className="h-4 w-4" />,
-      },
-      {
-        title: "Nursery to FSc Tuition",
-        urduTitle: "نرسری تا ایف ایس سی ٹیوشن",
-        detail: "Structured support classes for school and college learners",
-        image: "https://images.pexels.com/photos/5905540/pexels-photo-5905540.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.PresentationChart className="h-4 w-4" />,
-      },
-    ],
-  },
-  {
-    name: "Psychology & Parenting",
-    icon: <Icons.Brain className="h-4 w-4" />,
-    color: "text-violet-600 bg-violet-50 border-violet-100",
-    programs: [
-      {
-        title: "Educational Psychology",
-        urduTitle: "تعلیمی نفسیات",
-        detail: "Professional guidance on learning theories, student behavior, and academic success.",
-        image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Brain className="h-4 w-4" />,
-      },
-      {
-        title: "Child Psychology",
-        urduTitle: "بچوں کی نفسیات",
-        detail: "Understanding child development, mental health, and emotional well-being.",
-        image: "https://images.pexels.com/photos/1648387/pexels-photo-1648387.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Heart className="h-4 w-4" />,
-      },
-      {
-        title: "Parenting",
-        urduTitle: "پیرنٹنگ",
-        detail: "Effective parenting strategies, family dynamics, and raising healthy children.",
-        image: "https://images.pexels.com/photos/1620780/pexels-photo-1620780.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Users className="h-4 w-4" />,
-      },
-      {
-        title: "Educational Issues",
-        urduTitle: "تعلیمی مسائل",
-        detail: "Identifying and resolving academic challenges and institutional issues.",
-        image: "https://images.pexels.com/photos/5905555/pexels-photo-5905555.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.AlertCircle className="h-4 w-4" />,
-      },
-    ],
-  },
-  {
-    name: "Dr. Mudassar Seminars",
-    icon: <Icons.Clipboard className="h-4 w-4" />,
-    color: "text-teal-600 bg-teal-50 border-teal-100",
-    programs: [
-      {
-        title: "Test Preparations",
-        urduTitle: "ٹیسٹ کی تیاری",
-        detail: "Professional coaching for ETEA and NTS examinations",
-        image: "https://images.pexels.com/photos/4145197/pexels-photo-4145197.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.FileText className="h-4 w-4" />,
-      },
-      {
-        title: "Cadet College Test Prep & Interviews",
-        urduTitle: "کیریئر اور داخلے",
-        detail: "Cadet College Preparations and Interview preparation guidance",
-        image: "https://images.pexels.com/photos/1550337/pexels-photo-1550337.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Award className="h-4 w-4" />,
-      },
-      {
-        title: "English Grammar",
-        urduTitle: "انگلش گرامر",
-        detail: "Comprehensive English Grammar foundation for advanced learners",
-        image: "https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=800",
-        icon: <Icons.Type className="h-4 w-4" />,
-      },
-    ],
-  },
-];
+// Get icon component dynamically from library
+function getIcon(name: string, className: string = "h-4 w-4") {
+  const IconComponent = Icons[name as keyof typeof Icons];
+  if (!IconComponent) return null;
+  return <IconComponent className={className} />;
+}
+
+// Group data by category dynamically
+const categoryList: { [key: string]: { icon: string; color: string } } = {
+  "IT": { icon: "Monitor", color: "text-blue-600 bg-blue-50 border-blue-100" },
+  "Professional": { icon: "Briefcase", color: "text-orange-600 bg-orange-50 border-orange-100" },
+  "Academic": { icon: "GraduationCap", color: "text-indigo-600 bg-indigo-50 border-indigo-100" },
+  "Vocational": { icon: "Scissors", color: "text-pink-600 bg-pink-50 border-pink-100" },
+  "Psychology & Parenting": { icon: "Brain", color: "text-violet-600 bg-violet-50 border-violet-100" },
+  "Dr. Mudassar Seminars": { icon: "Clipboard", color: "text-teal-600 bg-teal-50 border-teal-100" }
+};
+
+const categories: Category[] = Object.keys(categoryList).map((catName) => {
+  const meta = categoryList[catName];
+  return {
+    name: catName,
+    iconName: meta.icon,
+    color: meta.color,
+    programs: coursesData.filter((c) => c.category === catName)
+  };
+});
 
 const notes = [
   { label: "ADA / ADS Details",    text: "ADA and ADS are associate degree pathways aligned with the old BA and BSc structure, with guided preparation and academic support for examinations.", tone: "accent" },
@@ -223,12 +52,13 @@ function ProgramCard({
   program,
   categoryColor,
 }: {
-  program: Program;
+  program: Course;
   categoryColor: string;
 }) {
   return (
-    <article
-      className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+    <Link
+      href={`/courses/${program.slug}`}
+      className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md cursor-pointer"
     >
       {/* Course Image on Top */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
@@ -237,12 +67,11 @@ function ProgramCard({
           alt={program.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {/* Subtle overlay for contrast */}
         <div className="absolute inset-0 bg-black/5" />
 
         {/* Small icon overlay */}
         <div className="absolute bottom-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-white/95 text-kips-navy-900 shadow-sm backdrop-blur-xs">
-          {program.icon}
+          {getIcon(program.iconName, "h-4.5 w-4.5")}
         </div>
       </div>
 
@@ -250,10 +79,10 @@ function ProgramCard({
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center justify-between gap-2">
           <span className="text-[0.65rem] font-bold uppercase tracking-wider text-kips-navy-900">
-            Professional Program
+            {program.category} Program
           </span>
           <span className="text-[0.65rem] font-medium text-kips-text-400">
-            Certificate
+            {program.duration}
           </span>
         </div>
 
@@ -272,11 +101,11 @@ function ProgramCard({
 
         {/* Action link */}
         <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3 text-[0.78rem] font-bold text-kips-navy-900">
-          <span>Learn more</span>
+          <span>View Course Details</span>
           <span className="transition-transform group-hover:translate-x-1">→</span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 
@@ -290,7 +119,7 @@ function CategoryGroup({ category }: { category: Category }) {
       {/* Category header */}
       <div ref={headerRef} className="flex items-center gap-3">
         <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${category.color} font-semibold shadow-xs`}>
-          {category.icon}
+          {getIcon(category.iconName, "h-4 w-4")}
         </div>
         <h3 className="font-display text-lg font-bold tracking-tight text-kips-text-900">
           {category.name} Programs

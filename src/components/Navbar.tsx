@@ -11,9 +11,10 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { href: "#home",         label: "Home",         sectionId: "home"         },
+  { href: "#about",        label: "About",        sectionId: "about"        },
   { href: "#programs",     label: "Programs",     sectionId: "programs"     },
   { href: "#why-kips",     label: "Why KIPS",     sectionId: "why-kips"     },
-  { href: "#affiliations", label: "Affiliations", sectionId: "affiliations" },
+  { href: "#reviews",      label: "Reviews",      sectionId: "reviews"      },
   { href: "#branches",     label: "Branches",     sectionId: "branches"     },
   { href: "#contact",      label: "Contact",      sectionId: "contact"      },
 ];

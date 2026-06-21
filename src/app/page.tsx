@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import About from "@/components/About";
+import Reviews from "@/components/Reviews";
 import Affiliations from "@/components/Affiliations";
 import WhyKIPS from "@/components/WhyKIPS";
 import BranchNetwork from "@/components/BranchNetwork";
@@ -30,9 +32,11 @@ export default function Home() {
       <main>
         <Hero onEnrollClick={openEnrollModal} />
         <StatsBar />
+        <About />
         <Programs />
         <WhyKIPS />
         <Affiliations />
+        <Reviews />
         <BranchNetwork />
         <ContactCTA onEnrollClick={openEnrollModal} />
       </main>

@@ -67,23 +67,41 @@ function EnrollmentFormContent() {
     e.preventDefault();
     setStatus("loading");
 
+    const messageText = `*NEW STUDENT ENROLLMENT APPLICATION*
+----------------------------------
+👤 *Name:* ${formData.name}
+📞 *WhatsApp Number:* ${formData.phone}
+📧 *Email:* ${formData.email || "N/A"}
+🎓 *Course:* ${formData.program}
+📍 *Preferred Campus:* ${formData.branch}
+💬 *Message/Requirements:* ${formData.message || "None"}
+----------------------------------
+Submitted via Keyan Institute Portal`;
+
+    const encodedMessage = encodeURIComponent(messageText);
+    const whatsappUrl = `https://wa.me/923019884455?text=${encodedMessage}`;
+
+    // Open WhatsApp immediately to prevent browser popup blockers
+    if (typeof window !== "undefined") {
+      window.open(whatsappUrl, "_blank");
+    }
+
     try {
-      const response = await fetch("/api/enroll", {
+      await fetch("/api/enroll", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
-      if (response.ok) {
-        setStatus("success");
-        setTimeout(() => {
-          router.push("/");
-        }, 3000);
-      } else {
-        setStatus("error");
-      }
+      setStatus("success");
+      setTimeout(() => {
+        router.push("/");
+      }, 4500);
     } catch (error) {
-      setStatus("error");
+      // Fallback to success since WhatsApp was already triggered
+      setStatus("success");
+      setTimeout(() => {
+        router.push("/");
+      }, 4500);
     }
   };
 
@@ -107,7 +125,7 @@ function EnrollmentFormContent() {
             </svg>
           </div>
           <h3 className="font-display text-lg font-bold text-emerald-900">Application Submitted!</h3>
-          <p className="mt-1 text-xs text-emerald-700">Thank you for choosing KIPS. Redirecting to home...</p>
+          <p className="mt-1 text-xs text-emerald-700">Opening WhatsApp to send your application details. Redirecting to home...</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -217,7 +235,7 @@ function EnrollmentFormContent() {
             </button>
             {status === "error" && (
               <p className="mt-2.5 text-center text-xs font-bold text-kips-red-700">
-                Submission error. Please verify network or contact 0314-4048842 directly.
+                Submission error. Please verify network or contact 0301-9884455 / 0314-4048842 directly.
               </p>
             )}
           </div>

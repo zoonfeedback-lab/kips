@@ -7,7 +7,8 @@ import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTop from "@/components/BackToTop";
 import { Icons } from "@/components/Icons";
-import { coursesData } from "@/data/courses";
+import { useCourses } from "@/hooks/useCourses";
+import { type Course } from "@/data/courses";
 
 // Helper to resolve icon dynamically
 function getIcon(name: string, className: string = "h-5 w-5") {
@@ -20,9 +21,10 @@ export default function CourseDetailsPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params?.slug as string;
+  const { courses, loading } = useCourses();
 
   // Find course details
-  const course = coursesData.find((c) => c.slug === slug);
+  const course = courses.find((c) => c.slug === slug);
 
   const handleEnrollClick = () => {
     if (course) {
@@ -31,6 +33,19 @@ export default function CourseDetailsPage() {
       router.push("/enroll");
     }
   };
+
+  if (loading) {
+    return (
+      <>
+        <Navbar onEnrollClick={() => router.push("/enroll")} />
+        <div className="container-custom py-32 text-center">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-kips-navy-900 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" />
+          <p className="mt-4 text-xs font-bold uppercase tracking-widest text-kips-text-400">Loading course details...</p>
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   if (!course) {
     return (

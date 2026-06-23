@@ -4,9 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { useScrollAnimation, useStaggerAnimation } from "@/hooks/useScrollAnimation";
 import { Icons } from "@/components/Icons";
-import { coursesData, type Course } from "@/data/courses";
+import { useCourses } from "@/hooks/useCourses";
+import { type Course } from "@/data/courses";
 
-type Category = {
+export type Category = {
   name: string;
   displayName: string;
   iconName: string;
@@ -22,7 +23,7 @@ function getIcon(name: string, className: string = "h-4 w-4") {
 }
 
 // Group data by category dynamically
-const categoryList: { [key: string]: { displayName: string; icon: string; color: string } } = {
+export const categoryList: { [key: string]: { displayName: string; icon: string; color: string } } = {
   "IT": { displayName: "Information Technology (IT)", icon: "Monitor", color: "text-blue-600 bg-blue-50 border-blue-100" },
   "Professional": { displayName: "Professional Certifications", icon: "Briefcase", color: "text-orange-600 bg-orange-50 border-orange-100" },
   "Academic": { displayName: "Academic Pathways", icon: "GraduationCap", color: "text-indigo-600 bg-indigo-50 border-indigo-100" },
@@ -35,17 +36,6 @@ export const categoryDisplayNames: { [key: string]: string } = Object.keys(categ
   acc[key] = categoryList[key].displayName;
   return acc;
 }, {} as Record<string, string>);
-
-const categories: Category[] = Object.keys(categoryList).map((catName) => {
-  const meta = categoryList[catName];
-  return {
-    name: catName,
-    displayName: meta.displayName,
-    iconName: meta.icon,
-    color: meta.color,
-    programs: coursesData.filter((c) => c.category === catName)
-  };
-});
 
 const notes = [
   { label: "ADA / ADS Details",    text: "ADA and ADS are associate degree pathways aligned with the old BA and BSc structure, with guided preparation and academic support for examinations.", tone: "accent" },
@@ -156,29 +146,59 @@ function CategoryGroup({ category }: { category: Category }) {
 
 /* ── Main Programs Section ── */
 export default function Programs({ limitCourses = false }: { limitCourses?: boolean }) {
+  const { courses, loading } = useCourses();
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
   const headerRef = useScrollAnimation<HTMLDivElement>();
   const tabsRef   = useScrollAnimation<HTMLDivElement>({ rootMargin: "0px 0px -40px 0px" });
   const notesRef  = useStaggerAnimation<HTMLDivElement>({ staggerMs: 100 });
 
+  // Map courses to categories dynamically
+  const categories: Category[] = Object.keys(categoryList).map((catName) => {
+    const meta = categoryList[catName];
+    return {
+      name: catName,
+      displayName: meta.displayName,
+      iconName: meta.icon,
+      color: meta.color,
+      programs: courses.filter((c) => c.category === catName)
+    };
+  }).filter(cat => cat.programs.length > 0);
+
   const featuredSlugs = [
-    "safety-tools",
-    "at-skills",
-    "first-aid",
-    "english-language",
-    "writing-skills",
-    "driving-skills",
-    "tafseer-quran"
+    "computer-ai-tools",
+    "cit",
+    "dit",
+    "graphic-designing",
+    "safety-officer",
+    "montessori-diploma",
+    "english-language"
   ];
-  const featuredPrograms = featuredSlugs
-    .map((slug) => coursesData.find((c) => c.slug === slug))
+  
+  let featuredPrograms = featuredSlugs
+    .map((slug) => courses.find((c) => c.slug === slug))
     .filter((c): c is Course => !!c);
+
+  // Fallback if none of the specific slugs exist (e.g. modified in admin)
+  if (featuredPrograms.length === 0 && courses.length > 0) {
+    featuredPrograms = courses.slice(0, 6);
+  }
 
   const filteredCategories =
     activeFilter === "All"
       ? categories
       : categories.filter((c) => c.name === activeFilter);
+
+  if (loading) {
+    return (
+      <section className="py-20 bg-white">
+        <div className="container-custom text-center py-20">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-kips-navy-900 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" />
+          <p className="mt-4 text-xs font-bold uppercase tracking-widest text-kips-text-400">Loading courses directory...</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="programs" className="scroll-mt-20 bg-white py-20">
